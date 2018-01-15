@@ -1,0 +1,55 @@
+/* alternative styles */
+table.its {
+	border-collapse:collapse;
+}
+table.its thead tr th{
+	background-image: url(../../images/tiao4_bg2.gif);
+	background-repeat: repeat-x;
+	height: 27px;
+	font-weight: bold;
+	color: #4f8c00;
+}
+
+table.its tr.even {
+	background-color: #fff;
+}
+table.its tr.odd {
+	background-color: #fff;
+}
+
+table.its td {
+	 border-left: dashed 1px #AAAAAA;
+	 border-right: dashed 1px #AAAAAA;
+	 border-bottom: dashed 1px #AAAAAA;
+}
+
+
+
+
+
+table.its2 {
+	border-collapse:collapse;
+}
+table.its2 thead tr th{
+	background-image: url(../../images/tiao5_bg2.gif);
+	background-repeat: repeat-x;
+	height: 27px;
+	font-weight: bold;
+	color: #FFF;
+}
+
+table.its2 tr.even {
+	background-color: #fff;
+}
+table.its2 tr.odd {
+	background-color: #fff;
+}
+
+table.its2 td {
+	 border-left: dashed 1px #6C0;
+	 border-right: dashed 1px #6C0;
+	 border-bottom: dashed 1px #6C0;
+}
+
+
+

@@ -1,0 +1,396 @@
+@charset "utf-8";
+/* CSS Document */
+BODY,DIV,UL,LI,FORM,INPUT,SPAN,P,A,DL,DT,DD,H1,H2,H3{margin:0px;padding:0px;list-style-type:none;}
+body{
+	font-size: 12px;
+	line-height: 20px;
+	font-family: "Microsoft YaHei", "宋体";
+	color: #555;
+}
+a:link{
+	color: #555;
+	text-decoration: none;
+}
+a:visited{
+	color: #555;
+	text-decoration: none;
+}
+a:hover{
+	color: #069;
+	text-decoration: underline;
+}
+img{border:none}
+a img {
+	cursor: pointer;
+}
+
+.tanchu_k {
+	border: 8px solid #187B81;
+}
+.tanchu_title {
+	height: 30px;
+	line-height: 25px;
+	font-size: 14px;
+	color: #FFFFFF;
+	padding-right: 10px;
+	padding-left: 10px;
+	background-color: #DDDFF4;
+}
+.tanchu_title_left {
+	text-align:center;
+	font-size: 15px;
+	font-weight: bold;
+}
+.tanchu_title_right {
+	float: right;
+}
+.tanchu_table {
+	background-image: url(../images/gltop_btn.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	font-size: 14px;
+	color: #187B81;
+}
+.tanchu_table tr td {
+	background-image: url(../images/dian.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+}
+.tanchu_content {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 13px;
+}
+.tanchu_table tr .tanchu_btn input {
+	margin-top: 15px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.tanchutxt {
+	padding: 18px;
+}
+.tanchutxt .tanchutxt_title {
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #cfe4e6;
+	padding-top: 15px;
+	font-size: 15px;
+	color: #187B81;
+}
+.tanchutxt p {
+	line-height: 13px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
+
+/* 登录 */
+.login {
+	background-color: #3689B3;
+	padding-top: 20px;
+	padding-left: 20px;
+	height: 130px;
+	padding-right: 20px;
+	color: #FFF;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #66AACC;
+	line-height: 30px;
+}
+
+.login table tr td a {
+	color: #FFF;
+	text-decoration: underline;
+}
+
+.login_user {
+	background-color: #3689B3;
+	color: #FFF;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+}
+
+.login_user_txt {
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	font-size: 13px;
+}
+
+.login_user_left {
+	float: left;
+}
+.main .left .login_user .login_user_txt .login_user_right {
+	float: right;
+}
+
+
+.btn_b {
+	font-size: 13px;
+	color: #FFF;
+	line-height: 35px;
+	width: 90px;
+	height: 35px;
+	background-image: url(../images/btn_b.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-color: transparent;
+	cursor: pointer;
+	font-family: "Microsoft YaHei", SimSun;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.btn_c {
+	font-size: 13px;
+	color: #FFF;
+	line-height: 35px;
+	width: 90px;
+	height: 35px;
+	background-image: url(../images/btn_c.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-color: transparent;
+	cursor: pointer;
+	font-family: "Microsoft YaHei", SimSun;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.btn_d {
+	font-size: 13px;
+	color: #FFF;
+	line-height: 35px;
+	width: 90px;
+	height: 35px;
+	background-image: url(../images/btn_d.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-color: transparent;
+	cursor: pointer;
+	font-family: "Microsoft YaHei", SimSun;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.btn_login {
+	font-size: 18px;
+	color: #FFF;
+	line-height: 70px;
+	width: 79px;
+	height: 70px;
+	background-image: url(../images/btn_login.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-color: transparent;
+	cursor: pointer;
+	font-family: "Microsoft YaHei", SimSun;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.btn_user {
+	font-size: 13px;
+	color: #FFF;
+	line-height: 30px;
+	width: 130px;
+	height: 30px;
+	background-image: url(../images/btn_user.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-color: transparent;
+	cursor: pointer;
+	font-family: "Microsoft YaHei", SimSun;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+/* 输入框 */
+.input_user {
+	height: 20px;
+	width: 165px;
+	list-style-type: none;
+	font-size: 13px;
+	color: #4C7299;
+	line-height: 20px;
+	font-family: "Microsoft YaHei", SimSun;
+	background-color: #FFF;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 35px;
+	background-color: transparent;
+	background-image: url(../images/input_user.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.input_password {
+	height: 20px;
+	width: 165px;
+	list-style-type: none;
+	font-size: 13px;
+	color: #4C7299;
+	line-height: 20px;
+	font-family: "Microsoft YaHei", SimSun;
+	background-color: #FFF;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 35px;
+	background-color: transparent;
+	background-image: url(../images/input_password.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.input_a {
+	height: 20px;
+	width: 236px;
+	list-style-type: none;
+	font-size: 13px;
+	color: #7D5500;
+	line-height: 20px;
+	font-family: "Microsoft YaHei", SimSun;
+	background-color: #FFF;
+	border: 1px solid #D9D1C3;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	background-color: #FFF;
+}
+.content_a {
+	background-color: #FFF;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #CFDEE6;
+	border-bottom-color: #CFDEE6;
+	border-left-color: #CFDEE6;
+	font-size: 13px;
+	padding: 15px;
+}
+.content_a p {
+	padding-bottom: 20px;
+}
+.content_a p span {
+	font-weight: bold;
+	color: #069;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+
+tr.odd {
+	background-color: #FDFCFA;
+}
+tr.highlight {
+	color: #7D5500;
+	background-color: #F4F2EA;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #D9D1C3;
+}
+tr.selected {
+	background-color: #F3F2E7;
+}
+.table_a tr td {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #E6DDCF;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #EBE7DE;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-top-color: #FFF;
+	border-left-color: #FFF;
+}
+.table_c {
+	background-color: #FDFCFA;
+	color: #7D5500;
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-top-color: #E6DACF;
+	border-left-color: #E6DACF;
+	word-spacing: 5px;
+}
+.table_c tr td {
+	padding: 5px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #FFF;
+	border-bottom-color: #EBE7DE;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #EBE7DE;
+	border-left-color: #FFF;
+}
+.tj_btn {
+	text-align: center;
+	padding-top: 20px;
+}
+.blue {
+	color: #069;
+	font-size: 15px;
+	font-weight: bold;
+}

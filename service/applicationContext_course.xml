@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-init-method="true" default-autowire="byName">
+	
+	<bean id="studyCoursewareDAO" class="com.hys.exam.dao.local.jdbc.StudyCoursewareJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="studyCoursewareManage" class="com.hys.exam.service.local.impl.StudyCoursewareManageImpl">
+		<property name="studyCoursewareDAO" ref="studyCoursewareDAO"/>
+	</bean>
+	<bean id="studyCoursewareFacade" class="com.hys.exam.sessionfacade.local.impl.StudyCoursewareFacadeImpl">
+		<property name="studyCoursewareManage" ref="studyCoursewareManage"/>
+	</bean>
+
+	<bean id="studyCourseTypeDAO" class="com.hys.exam.dao.local.jdbc.StudyCourseTypeJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="studyCourseTypeManage" class="com.hys.exam.service.local.impl.StudyCourseTypeManageImpl">
+		<property name="studyCourseTypeDAO" ref="studyCourseTypeDAO"/>
+	</bean>
+	<bean id="studyCourseTypeFacade" class="com.hys.exam.sessionfacade.local.impl.StudyCourseTypeFacadeImpl">
+		<property name="studyCourseTypeManage" ref="studyCourseTypeManage"/>
+	</bean>	
+
+	<!-- 课程信息 -->
+	<bean id="studyCourseDAO" class="com.hys.exam.dao.local.jdbc.StudyCourseJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	
+	<bean id="studyCourseManage" class="com.hys.exam.service.local.impl.StudyCourseManageImpl"></bean>
+	
+	<bean id="studyCourseFacade" class="com.hys.exam.sessionfacade.local.impl.StudyCourseFacadeImpl"></bean>
+
+	<!-- 站点信息 -->
+	<bean id="systemSiteDAO" class="com.hys.exam.dao.local.jdbc.SystemSiteJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	
+	<bean id="systemSiteManage" class="com.hys.exam.service.local.impl.SystemSiteManageImpl">
+		<property name="systemSiteDAO" ref="systemSiteDAO"/>
+		<property name="icmeOrgDAO" ref="icmeOrgDAO"/>
+	</bean>
+	
+	<bean id="systemSiteFacade" class="com.hys.exam.sessionfacade.local.impl.SystemSiteFacadeImpl"></bean>
+
+	<!-- 组件信息 -->
+	<bean id="studyCourseElementDAO" class="com.hys.exam.dao.local.jdbc.StudyCourseElementJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	
+	<bean id="studyCourseElementManage" class="com.hys.exam.service.local.impl.StudyCourseElementManageImpl"></bean>
+	
+	<bean id="studyCourseElementFacade" class="com.hys.exam.sessionfacade.local.impl.StudyCourseElementFacadeImpl"></bean>
+
+	<!-- ncme -->
+	<bean id="ncmeAdminOrganDAO" class="com.hys.exam.dao.local.jdbc.NcmeAdminOrganJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="ncmeAdminOrganManage" class="com.hys.exam.service.local.impl.NcmeAdminOrganManageImpl">
+		<property name="ncmeAdminOrganDAO" ref="ncmeAdminOrganDAO"/>
+	</bean>
+	<bean id="ncmeAdminOrganFacade" class="com.hys.exam.sessionfacade.local.impl.NcmeAdminOrganFacadeImpl">
+		<property name="ncmeAdminOrganManage" ref="ncmeAdminOrganManage"/>
+	</bean>
+
+	<bean id="ncmeCourseTypeDAO" class="com.hys.exam.dao.local.jdbc.NcmeCourseTypeJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="ncmeCourseTypeManage" class="com.hys.exam.service.local.impl.NcmeCourseTypeManageImpl">
+		<property name="ncmeCourseTypeDAO" ref="ncmeCourseTypeDAO"/>
+	</bean>
+	<bean id="ncmeCourseTypeFacade" class="com.hys.exam.sessionfacade.local.impl.NcmeCourseTypeFacadeImpl">
+		<property name="NcmeCourseTypeManage" ref="ncmeCourseTypeManage"/>
+	</bean>
+
+	<bean id="ncmeCreditTypeDAO" class="com.hys.exam.dao.local.jdbc.NcmeCreditTypeJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="ncmeCreditTypeManage" class="com.hys.exam.service.local.impl.NcmeCreditTypeManageImpl">
+		<property name="ncmeCreditTypeDAO" ref="ncmeCreditTypeDAO"/>
+	</bean>
+	<bean id="ncmeCreditTypeFacade" class="com.hys.exam.sessionfacade.local.impl.NcmeCreditTypeFacadeImpl">
+		<property name="ncmeCreditTypeManage" ref="ncmeCreditTypeManage"/>
+	</bean>
+	
+	<bean id="ncmeCourseCreditDAO" class="com.hys.exam.dao.local.jdbc.NcmeCourseCreditJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="ncmeCourseCreditManage" class="com.hys.exam.service.local.impl.NcmeCourseCreditManageImpl">
+		<property name="ncmeCourseCreditDAO" ref="ncmeCourseCreditDAO"/>
+	</bean>
+	<bean id="ncmeCourseCreditFacade" class="com.hys.exam.sessionfacade.local.impl.NcmeCourseCreditFacadeImpl">
+		<property name="ncmeCourseCreditManage" ref="ncmeCourseCreditManage"/>
+	</bean>
+</beans>

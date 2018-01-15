@@ -1,0 +1,212 @@
+﻿@charset "utf-8"; 
+
+* {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	color: #333;
+	text-decoration: none;
+	height: 100%;
+	background-color: #dfdfdf;
+}
+
+#exam_box {
+	height: auto;
+	width: 100%;
+}
+
+#exam_center {
+	width: 915px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	height: auto;
+}
+
+#exam_title {
+	height: 50px;
+	width: 915px;
+	background-repeat: no-repeat;
+	padding-top: 38px;
+	font-family: 黑体, 宋体;
+	font-size: 24px;
+	line-height: 36px;
+	color: #FFF;
+}
+
+#exam_main_top {
+	background-repeat: no-repeat;
+	height: 68px;
+	width: 825px;
+	padding-top: 20px;
+	padding-right: 65px;
+	padding-left: 25px;
+}
+
+#exam_ksxm {
+	height: 30px;
+}
+
+#showTime {
+	height: 25px;
+	padding-top: 12px;
+}
+
+#exam_main {
+	background-color: #FFF;
+	background-image: url(../../images/exam/exam_main_bg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	width: 858px;
+	height: auto;
+	padding-right: 25px;
+	padding-left: 25px;
+	margin-right: 7px;
+	overflow: hidden;
+}
+
+#questionId {
+	WIDTH: 100%;
+	HEIGHT: 100%;
+}
+
+#questionIdNot {
+	WIDTH: 100%;
+	HEIGHT: 100%;
+}
+
+#questionId UL {
+	PADDING-RIGHT: 0;
+	PADDING-LEFT: 5px;
+	PADDING-BOTTOM: 0;
+	MARGIN: 0 0 0 5px;
+	PADDING-TOP: 0;
+}
+
+#questionIdNot UL {
+	PADDING-RIGHT: 0;
+	PADDING-LEFT: 5px;
+	PADDING-BOTTOM: 0;
+	MARGIN: 0 0 0 5px;
+	PADDING-TOP: 0;
+}
+
+#questionId UL LI {
+	BORDER-RIGHT: #d4d6d6 1px double;
+	BORDER-TOP: #d4d6d6 1px double;
+	FLOAT: left;
+	MARGIN: 2px;
+	BORDER-LEFT: #d4d6d6 1px double;
+	WIDTH: 22px;
+	CURSOR: pointer;
+	COLOR: #0069db;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #d4d6d6 1px double;
+	LIST-STYLE-TYPE: none;
+	HEIGHT: 22px;
+	BACKGROUND-COLOR: #eaecea;
+	TEXT-ALIGN: center;
+}
+
+#questionIdNot UL LI {
+	BORDER-RIGHT: #d4d6d6 1px double;
+	BORDER-TOP: #d4d6d6 1px double;
+	FLOAT: left;
+	MARGIN: 2px;
+	BORDER-LEFT: #d4d6d6 1px double;
+	WIDTH: 22px;
+	CURSOR: pointer;
+	COLOR: #0069db;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #d4d6d6 1px double;
+	LIST-STYLE-TYPE: none;
+	HEIGHT: 22px;
+	BACKGROUND-COLOR: #eaecea;
+	TEXT-ALIGN: center;
+}
+
+.questionIdLi {
+	COLOR: #fff;
+	BACKGROUND-COLOR: #00f;
+}
+
+#questionName {
+	WIDTH: 915px;
+	HEIGHT: 100%;
+	background-color: #FFF;
+}
+
+#questionName UL {
+	PADDING-RIGHT: 0;
+	PADDING-LEFT: 5px;
+	PADDING-BOTTOM: 0;
+	MARGIN: 25px 0 0 5px;
+	PADDING-TOP: 0;
+}
+
+#questionName UL LI {
+	MARGIN-TOP: 5px;
+	MARGIN-LEFT: 30px;
+	LIST-STYLE-TYPE: none;
+}
+
+.b1result {
+	border: 1px solid green;
+}
+
+#questionButton {
+	width: 910px;
+	height: 40px;
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: center;
+	background-color: #FFF;
+}
+
+#exam_main_bottom {
+	background-image: url(../../images/exam/exam_main_bottom.gif);
+	background-repeat: no-repeat;
+	text-align: center;
+	height: 40px;
+	width: 915px;
+	margin: 0 auto;
+	padding-top: 19px;
+}
+
+.font01 {
+	color: #000000;
+	font-weight: bold;
+}
+
+.questionTitle {
+	font-size: 14px;
+	font-weight: bold;
+	border-bottom: solid 1px #CCC;
+}
+
+.questionRadio {
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-right: 5px;
+}
+
+.questionbutton {
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.questionimg {
+	margin-right: 10px;
+}
+
+.questionContent {
+	font-size: 12px;
+	font-weight: normal;
+}

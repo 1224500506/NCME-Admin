@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Demo - Validform - 一行代码搞定整站的表单验证！ &copy;瑞金佬的前端路</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/demo.css" type="text/css" media="all" />
+</head>
+
+<body>  
+<div class="header">
+    <div class="wraper">
+        <ul class="nav">
+            <li><a href="demo.html" class="current">Demo</a></li>
+            <li><a href="document.html">文档</a></li>
+        </ul>
+    </div>
+</div>
+<div class="main">
+    <div class="wraper">
+        
+    	<h2 class="green">提示效果三：Focus时右侧出现提示文字</h2>
+        <form class="registerform" method="post" action="ajax_post.php">
+            <table width="100%" style="table-layout:fixed;">
+                <tr>
+                    <td class="need" style="width:10px;">*</td>
+                    <td style="width:70px;">昵称：</td>
+                    <td style="width:155px;"><input type="text" value="" name="name" class="inputxt" datatype="s" minlen="6" maxlen="12"  nullmsg="请输入您的昵称！" errormsg="昵称至少6个字符,最多12个字符(每个汉字长度占2个字符)！" /></td>
+                    <td>
+                    	<div class="Validform_checktip"></div>
+                        <div class="info">昵称至少6个字符,最多18个字符aaa<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="need" style="width:10px;">*</td>
+                    <td >密码：</td>
+                    <td >
+                        <input type="password" value="" name="password" class="inputxt" plugin="passwordStrength"  datatype="*6-18" nullmsg="请输入密码！" errormsg="密码至少6个字符,最多18个字符！" />
+                    </td>
+                    <td>
+                        <div class="Validform_checktip"></div>
+                        <div class="passwordStrength" style="display:none;"><b>密码强度：</b> <span>弱</span><span>中</span><span class="last">强</span></div>
+                        <div class="info">密码至少6个字符,最多18个字符<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="need">*</td>
+                    <td>确认密码：</td>
+                    <td><input type="password" value="" name="repassword" class="inputxt" recheck="password"  datatype="*6-18" nullmsg="请确认密码！" errormsg="两次输入的密码不一致！" /></td>
+                    <td>
+                    	<div class="Validform_checktip"></div>
+                    	<div class="info">请确认您的密码<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="need">*</td>
+                    <td>移动电话：</td>
+                    <td><input type="text" value="" name="tel" class="inputxt" ignore="ignore" datatype="m" nullmsg="请输入您的手机号码！" errormsg="请输入您的手机号码！"  /></td>
+                    <td>
+                    	<div class="Validform_checktip"></div>
+                        <div class="info">请输入您的手机号码<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="need">*</td>
+                    <td>所在城市：</td>
+                    <td><select class="inputxt" name="province" datatype="*" nullmsg="请选择所在城市！" errormsg="请选择所在城市！" ><option value="">请选择城市</option><option value="1">瑞金市</option></select></td>
+                    <td>
+                    	<div class="Validform_checktip"></div>
+                        <div class="info">请选择您所在的城市<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="need"></td>
+                    <td>备注：</td>
+                    <td colspan="2">
+                        <textarea tip="请在这里输入您的意见。" altercss="gray" class="gray" name="msg" value="">请在这里输入您的意见。</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="need"></td>
+                    <td></td>
+                    <td colspan="2" style="padding:10px 0 18px 0;">
+                        <input type="submit" value="提 交" /> <input type="reset" value="重 置" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        
+        <h2>说明：</h2>
+        <div class="tipmsg">
+        	<p>如示例，需要自己另外绑定事件实现这效果。</p>
+        </div>
+        
+    </div>
+</div>
+
+<div class="footer">
+    <div class="wraper">
+        <p class="fl">Copyright &copy; <a href="http://www.rjboy.cn" target="_blank">瑞金佬的前端路</a></p>
+        <p class="fr"><a href="http://validform.rjboy.cn">Validform</a><b> | </b><a href="http://www.rjboy.cn/?p=789" target="_blank">hScrollpane</a><b> | </b><a href="http://www.rjboy.cn/?p=708" target="_blank">Xslider</a></p>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/Validform_v5.3.js"></script>
+
+<script type="text/javascript" src="plugin/passwordStrength/passwordStrength-min.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	$(".registerform").Validform();  //就这一行代码！;
+	
+	
+	/*
+	$(".registerform").Validform({
+		tiptype:2,
+		usePlugin:{
+			passwordstrength:{
+				minLen:6,
+				maxLen:18,
+				trigger:function(obj,error){
+					if(error){
+						obj.parent().next().find(".passwordStrength").hide().siblings(".info").show();
+					}else{
+						obj.removeClass("Validform_error").parent().next().find(".passwordStrength").show().siblings().hide();	
+					}
+				}
+			}
+		}
+	});
+	*/
+})
+</script>
+</body>
+</html>

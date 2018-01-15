@@ -1,0 +1,163 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+form 
+{
+	margin:0;
+	padding:0;
+}
+body {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: auto;
+	text-decoration: none;
+}
+
+table.dataintable {
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:12px;
+}
+table.dataintable td {
+	background-color:#EFEFEF;
+	border:1px solid #AAAAAA;
+	padding:5px 15px 5px 5px;
+	vertical-align:text-top;
+}
+table.dataintable th {
+	background-color:#CCCCCC;
+	border:1px solid #888888;
+	padding:5px 15px 5px 5px;
+	vertical-align:baseline;
+}
+
+.gtable{
+	background: #999; 
+}
+
+.gtable td{
+	background: #999; 
+	font-family: arial;
+	font-size: 12px;
+	font-family: arial;
+	text-align:center;
+	padding:5px 15px 5px 15px;
+}
+
+.gtable td a:link {
+	color: #FFFACD;
+	text-decoration: underline;
+}
+	
+.gtable td a:visited {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.gtable td a:hover {
+	color: #666;
+	text-decoration: none;
+}
+
+.gtable td a:active {
+	color: #666;
+	text-decoration: none;
+}
+	
+.gridtable{
+	background: #999; 
+}
+.gridtable td{
+	background: #fff;
+	font-family: arial;
+	font-size: 12px;
+	font-family: arial;
+	height:35px;
+}
+
+.gridtable textarea {
+	font-size: 12px;
+}
+
+
+td.row_tip{
+	width: 15%;
+	background: #CCCCCC;
+	font-weight:bold;
+}
+
+td.row{
+	background: #CCCCCC;
+	font-weight:bold;
+}
+
+td.row_tip_sub{
+	background: #fffff1;
+}
+
+.editTextarea{
+	border:1px solid #E5E5E5;
+	font-size:12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	padding:2px;
+}
+
+.editInput{
+	border:1px solid #E5E5E5;
+	font-size:12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	width:300px;
+	height:30px;
+}
+.red_star{
+	color: #ff0000;
+	margin-right: 2px;
+	font-weight: bold;
+}
+
+.stcx_form {
+	width: 130px;
+	border: solid 1px #CCC;
+	float: left;
+}
+.stcx_form2 {
+	width: 350px;
+	border: solid 1px #CCC;
+	float: left;
+}
+
+
+/**
+2014-07-14
+**/
+#Container{
+    width:800px;
+    margin:0 auto;
+	margin-top:30px;
+}
+#Left_Content{
+    height:500px;
+	margin:40px;
+    margin-bottom: 0px;
+    float: left;
+}
+#Right_Content{
+    height:30px;
+    margin:40px;
+    float: left;
+}
+#Left{
+    height:400px;
+    width:400px;
+    float:left;
+}
+#Right{
+    height:400px;
+    width:400px;
+    float:right;
+}
+.Clear{
+    clear:both;
+}
+
+

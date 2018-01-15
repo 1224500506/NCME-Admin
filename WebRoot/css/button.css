@@ -1,0 +1,57 @@
+/* 原始背景 */
+.btn_01s {
+	background: url(../images/xjsj_bc.gif) no-repeat;
+	text-align: center;
+	border: 0px;
+	width: 57px;
+	height: 25px;
+	font-weight:bolder;
+	padding-top: 3px !important;
+	cursor: pointer;display:inline-block;
+}
+.btn_02s {
+	background: url(../images/xjsj_fh.gif) no-repeat;
+	text-align: center;
+	border: 0px;
+	width: 57px;
+	height: 25px;
+	font-weight:bolder;
+	padding-top: 3px !important;
+	cursor: pointer;display:inline-block;
+}
+
+/* 原始背景1 */
+.btn_03s {
+	background: url(../images/button/ori_2.png) no-repeat;
+	text-align: center;
+	border: 0px;
+	width: 85px;
+	height: 21px;
+	font-weight:bolder;
+	padding-top: 3px !important;
+	cursor: pointer;display:inline-block;
+}
+
+/* 原始背景1 */
+.btn_03s:hover {
+	background: url(../images/button/ori_1.png) no-repeat;
+	text-align: center;
+	border: 0px;
+	width: 85px;
+	height: 21px;
+	font-weight:bolder;
+	padding-top: 3px !important;
+	cursor: pointer;display:inline-block;
+}
+
+/* 原始背景2 */
+.btn_04s {
+	background: url(../images/button/btn_05.gif) no-repeat;
+	text-align: center;
+	border: 0px;
+	width: 35px;
+	height: 22px;
+	font-weight:bolder;
+	padding-top: 3px !important;
+	cursor: pointer;display:inline-block;
+}

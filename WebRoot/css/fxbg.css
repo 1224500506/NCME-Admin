@@ -1,0 +1,404 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	}
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	color: #333;
+	text-decoration: none;
+	height: 100%;
+	text-align:center;
+}
+
+#fxbg_center div{
+text-align:left;	
+}
+#fxbg_box {
+	height: auto;
+	width: 100%;
+}
+#fxbg_center {
+	width: 915px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	height: auto;
+}
+#fxbg_title {
+	height: 43px;
+	width: 875px;
+	background-image: url(../images/fxbg_titlebg.jpg);
+	background-repeat: no-repeat;
+	padding-top: 45px;
+	padding-right: 40px;
+	text-align: right;
+	font-family: 黑体;
+	font-size: 24px;
+	line-height: 28px;
+	color: #FFF;
+}
+#fxbg_main_top {
+	background-image: url(../images/fxbg_main_top.jpg);
+	background-repeat: no-repeat;
+	height: 68px;
+	width: 825px;
+	padding-top: 20px;
+	padding-right: 65px;
+	padding-left: 25px;
+}
+#fxbg_sm {
+	height: 60px;
+}
+
+#fxbg_sm1 {
+	height: 30px;
+	line-height: 30px;
+}
+#fxbg_sm2 {
+	height: 30px;
+	line-height: 30px;
+}
+#fxbg_sm2 li {
+	width: 275px;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	list-style-type: none;
+	}
+
+
+#fxbg_main {
+	background-color:#ffffff;
+	width: auto;
+	height: auto;
+	margin-right: 7px;
+	overflow:hidden;
+	padding-left: 25px;
+	padding-right: 25px;
+	border: 1 solid #DFDFDF;
+}
+.ques_info {
+	margin-top: 10px;
+}
+#ques_key {
+	margin-left: 25px;
+}
+#ques_key li{
+	line-height: 20px;
+	list-style-type: none;
+}
+
+#ques_result{
+	padding-left: 24px;
+	padding-right: 24px;
+}
+
+#ques_update{
+	height: 30px;
+}
+
+#ques_update li{
+	float: right;
+	width: 50px;
+	line-height: 20px;
+	list-style-type: none;
+	margin-right:5px;
+	border:0px solid blue;
+	text-align:center;
+	cursor:pointer;
+	padding:2px 2px 2px 2px;
+	color:red;
+}
+
+#ques_result_true{
+	margin-top: 10px;
+	font-weight: bold;
+	line-height: 20px;
+	list-style-type: none;
+}
+
+#ques_result_anal{
+	margin-top: 10px;
+}
+
+#sub_ques_info{
+	margin-left: 25px;
+	margin-top: 10px;
+}
+#sub_ques_cont{
+	margin-top: 10px;
+}
+
+#sub_ques_title{
+	font-weight: bold;
+}
+
+#sub_ques_key{
+	margin-left: 25px;
+}
+
+#sub_ques_key li{
+	line-height: 20px;
+	list-style-type: none;
+}
+
+
+#fxbg_mm {
+	position: relative;
+	top: -35px;
+}
+
+#fxbg_ksxx {
+	width: 798px;
+	height: 60px;
+	margin: 0 auto;
+}
+#fxbg_ksxx li {
+	width: 266px;
+	height: 30px;
+	line-height: 30px;
+	list-style-type: none;
+	float: left;
+	}
+
+#fxbg_bcksxx {
+	width: 798px;
+	height: 60px;
+	margin: 0 auto;
+}
+#fxbg_bcksxx li {
+	width: 266px;
+	height: 30px;
+	line-height: 30px;
+	list-style-type: none;
+	float: left;
+}
+#fxbg_bcksxx ul {
+	width: 798px;
+	clear: left;
+}
+
+caption {
+	line-height: 30px;
+	font-weight: bold;
+	text-align: left;
+}
+table {
+	text-align: center;
+	margin: 0 auto;
+	background-color: #CCC;
+}
+td {
+	background-color: #FFF;
+	height: 25px;
+	width: 10%;
+	line-height: 25px;
+}
+thead {
+	font-weight: bold;
+}
+
+#fxbg_main_bottom {
+	background-image: url(../images/exam_main_bottom.gif);
+	background-repeat: no-repeat;
+	text-align: center;
+	height: 40px;
+	width: 908px;
+	padding-top: 19px;
+}
+#fxbg_main_bottom img {
+	margin-left: 10px;
+}
+
+#ksts_title {
+	height: 88px;
+	width: 850px;
+	background-image: url(../images/ksts_titlebg.jpg);
+	background-repeat: no-repeat;
+}
+#ksts_main_top {
+	background-image: url(../images/ksts_main_top.jpg);
+	background-repeat: no-repeat;
+	height: 68px;
+	width: 825px;
+	padding-top: 20px;
+	padding-right: 65px;
+	padding-left: 25px;
+	font-size: 14px;
+	font-weight: bold;
+}
+#ksts_main_bottom {
+	background-image: url(../images/exam_main_bottom.gif);
+	background-repeat: no-repeat;
+	text-align: center;
+	height: 40px;
+	padding-top: 19px;
+	font-weight: bold;
+	line-height: 30px;
+	width: 909px;
+	margin-right: 5px;
+}
+
+#kscg_main_top {
+	background-image: url(../images/kscg_main_top.jpg);
+	background-repeat: no-repeat;
+	height: 68px;
+	width: 825px;
+	padding-top: 20px;
+	padding-right: 65px;
+	padding-left: 25px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#kspj_main_top {
+	background-image: url(../images/kspj_main_top.jpg);
+	background-repeat: no-repeat;
+	height: auto;
+	width: 850px;
+	padding-top: 50px;
+	font-size: 14px;
+	font-weight: bold;
+}
+#kspj_top {
+	background-color:#DFDFDF;
+	height: 50;
+	font-size: 12px;
+	line-height: 50px;
+	font-weight: normal;
+	text-align: left;
+	margin-top: 25px;
+	margin-right: 7px;
+}
+#kspj_top ul{
+	list-style: none;
+	margin-left: 25px;
+}
+
+#paper_info{
+	background-color:#DFDFDF;
+	width: auto;
+	height: 40px;
+	margin-right: 7px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+#paper_info li {
+	width: 175px;
+	list-style-type: none;
+	float: left;
+}
+#fs {
+	height: 70px;
+	padding-left: 24px;
+	padding-right: 24px;
+}
+#fs li {
+	height: 70px;
+	float: left;
+	line-height: 70px;
+	list-style-type: none;
+}
+
+#xzfs {
+	width: 120px;
+	margin-top: 25px;
+}
+#fssm {
+	width: 450px;
+	height: 60px;
+	margin-top: 8px;
+	border: solid 1px #7F9DB9;
+}
+#qrfs {
+	width: 200px;
+	height: 50px;
+	padding-top: 10px;
+	margin: 0 auto;
+}
+#qrfs img {
+	margin-left: 15px;
+	}
+#kspj_main_bottom {
+	background-image: url(../images/exam_main_bottom.gif);
+	background-repeat: no-repeat;
+	text-align: center;
+	height: 50px;
+	width: 909px;
+	padding-top: 9px;
+	margin-right: 5px;
+}
+
+
+
+.fxbg_title1 {
+	width: 828px;
+	height: 35px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #6ABB03;
+	line-height: 35px;
+	padding-left: 30px;
+	background-image: url(../images/fxbg_listbg.gif);
+	background-repeat: no-repeat;
+	margin-top: 10px;
+}
+.fxbg_conter {
+	width: 95%;
+	line-height:25px;
+	margin: 0 auto;
+	border-bottom: dashed 1px #6ABB03;
+	}
+.fxbg_font1 {
+	font-weight: bold;
+	text-align: left;
+	padding-left: 4px;
+	}
+
+.ksts_title1 {
+	width:100%;
+	height: auto;
+	font-size: 12px;
+	font-weight: bold;
+	color: black;
+	line-height: 25px;
+	background-image: url(../images/fxbg_title1.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+.ksts_title2 {
+	height: 25px;
+	line-height: 25px;
+	padding-left: 24px;
+	padding-right: 24px;
+}
+.ksts_title3 {
+	height: 25px;
+	line-height: 25px;
+	font-size: 12px;
+	font-weight: normal;
+	color: #333;
+}
+.ksts_font1 {
+	color:#F00;
+}
+.kspj_font1 {
+	height: 30px;
+	line-height: 30px;
+	font-weight: bold;
+	padding-left: 24px;
+	padding-right: 24px;
+}
+.kspj_font2 {
+	line-height: 25px;
+	padding-left: 24px;
+	padding-right: 24px;
+	border: dashed 1px #6ABB03;
+}

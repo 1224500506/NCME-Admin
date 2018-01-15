@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="groupClassInfoDAO" class="com.hys.exam.dao.local.jdbc.GroupClassInfoJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	
+	
+	
+	
+	
+	<!-- 话题讨论DAO -->
+	<bean id="topicDiscussionDAO" class="com.hys.exam.dao.local.jdbc.TopicDiscussionJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+
+	<bean id="localExamQuestionDAO" class="com.hys.exam.dao.local.jdbc.ExamQuestionJDBCDAO">
+		<property name="localExamPropValDAO" ref="localExamPropValDAO"/>
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+
+    <!-- 程宏叶DAO -->
+   <bean id="cvUnitManageDAO" class="com.hys.exam.dao.local.jdbc.CVUnitManageJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+   </bean>
+
+ 
+
+
+
+
+	<bean id="localExamQuestionKeyDAO" class="com.hys.exam.dao.local.jdbc.ExamQuestionKeyJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+
+	<bean id="localExamQuestionPropDAO" class="com.hys.exam.dao.local.jdbc.ExamQuestionPropJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+
+	<bean id="localExamQuestionLabelDAO" class="com.hys.exam.dao.local.jdbc.ExamQuestionLabelJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+
+	<bean id="localExamPropValDAO" class="com.hys.exam.dao.local.jdbc.ExamPropValJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	<bean id="localExamImportQuestAttDAO" class="com.hys.exam.dao.local.jdbc.ExamImportQuestAttJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	<bean id="localExamQuestionPropValCascadeDAO" class="com.hys.exam.dao.local.jdbc.ExamQuestionPropValCascadeJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	<bean id="localExamQuestionTypeDAO" class="com.hys.exam.dao.local.jdbc.ExamQuestionTypeJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	<bean id="localExamPaperTypeDAO" class="com.hys.exam.dao.local.jdbc.ExamPaperTypeJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	<bean id="localExamPaperDAO" class="com.hys.exam.dao.local.jdbc.ExamPaperJDBCDAO">
+		<property name = "localExamPaperFasterTacticDAO" ref = "localExamPaperFasterTacticDAO"/>
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	<bean id="localExamPaperFasterTacticDAO" class="com.hys.exam.dao.local.jdbc.ExamPaperFasterTacticJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>	
+	
+	<bean id="localExamExaminTypeDAO" class="com.hys.exam.dao.local.jdbc.ExamExaminTypeJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+
+	<bean id="localExamExaminationDAO" class="com.hys.exam.dao.local.jdbc.ExamExaminationJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>	
+	
+	<bean id="localExamOlemPropDAO" class="com.hys.exam.dao.local.jdbc.ExamOlemPropJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	<bean id="localExpertManageDAO" class="com.hys.exam.dao.local.jdbc.ExpertManageJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>	
+
+	<bean id="localMaterialManageDAO" class="com.hys.exam.dao.local.jdbc.MaterialManageJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>	
+		
+	
+	<bean id="localCaseDAO" class="com.hys.exam.dao.local.jdbc.CaseJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>	
+	
+	
+	<bean id="localExpertGroupDAO" class="com.hys.exam.dao.local.jdbc.ExpertGroupJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>	
+
+	<bean id="localExamPropListByDirectDAO" class="com.hys.exam.dao.local.jdbc.ExamPropListByDirectJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+
+	<bean id="localUserImageManageDAO" class="com.hys.exam.dao.local.jdbc.UserImageManageJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	<bean id="localQualityModelManageDAO" class="com.hys.exam.dao.local.jdbc.QualityModelManageJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	<bean id="localStudyGuideManageDAO" class="com.hys.exam.dao.local.jdbc.StudyGuideManageJDBCDAO">
+		<property name="userImageManageJDBCDAO" ref="localUserImageManageDAO"/>
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	<bean id="localCVManageDAO" class="com.hys.exam.dao.local.jdbc.CVManageJdbcDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	<bean id="localCVSetManageDAO" class="com.hys.exam.dao.local.jdbc.CVSetManageJdbcDAO">
+		<property name="localCVManageDAO" ref="localCVManageDAO"/>
+		<property name="localUserImageManageDAO" ref="localUserImageManageDAO"/>
+		<property name="localExpertManageDAO" ref="localExpertManageDAO"/>
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	<bean id="localSystemMenuManageDAO" class="com.hys.exam.dao.local.jdbc.SystemMenuManageJdbcDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+
+	<bean id="localOrgDAO" class="com.hys.exam.dao.local.jdbc.OrgJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	<bean id="systemLogManage" class="com.hys.exam.service.local.impl.SystemLogManageImpl">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	<bean id="localSentenceMangeDAO" class="com.hys.exam.dao.local.jdbc.SentenceManageJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	<!-- 配置banner -->
+	<bean id="localBannerManageDAO" class="com.hys.exam.dao.local.jdbc.BannerManageDAOImpl">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	<!-- 配置反馈管理 -->
+	<bean id="feedManageDAO" class="com.hys.exam.dao.local.jdbc.FeedManageJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+<!-- 	replyManageDAO  回复DAO -->
+	<bean id="replyManageDAO" class="com.hys.exam.dao.local.jdbc.ReplyManageJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	<!-- 配置消息管理 -->
+	<!-- message信息管理  -->
+	<bean id="messageManageDAO" class="com.hys.exam.dao.local.jdbc.MessageManageJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	
+	<bean id="xiangYiProvinceDAO" class="com.hys.xiangyi.dao.local.jdbc.XiangYiProvinceJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	
+	<bean id="localEditionManageDAO" class="com.hys.exam.dao.local.jdbc.EditionManageJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate"  ref="examSimpleJdbcTemplate"/>
+		<property name="localCVSetManageDAO" ref="localCVSetManageDAO"></property>
+	</bean>
+	
+	<bean id="localContentIssueManageDAO" class="com.hys.exam.dao.local.jdbc.ContentIssueManageJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	
+	   <!-- 学习记录(单元)DAO -->
+   <bean id="localLogStudyCVUnitDAO" class="com.hys.exam.dao.local.jdbc.LogStudyCVUnitJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	<!-- 直播课程 -->
+	<bean id="localCvLiveManageDAO" class="com.hys.exam.dao.local.jdbc.CvLiveJdbcDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	<!-- 登录限制 -->
+	<bean id="systemConfigDAO" class="com.hys.exam.dao.local.jdbc.SystemConfigJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+	<!-- 授权改进 -->
+	<bean id="cVSetAuthorizationDAO" class="com.hys.exam.dao.local.jdbc.CVSetAuthorizationJdbcDAO">
+		<property name="localCVManageDAO" ref="localCVManageDAO"/>
+		<property name="localUserImageManageDAO" ref="localUserImageManageDAO"/>
+		<property name="localExpertManageDAO" ref="localExpertManageDAO"/>
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+		<property name="simpleJdbcTemplate" ref="examSimpleJdbcTemplate"/>
+	</bean>
+</beans>

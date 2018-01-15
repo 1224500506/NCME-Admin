@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	
+	<bean id="examWebServiceImpl" class="com.hys.exam.interfaces.impl.ExamWebServiceImpl">
+		<property name="remoteExamPropValFacade" ref="remoteExamPropValFacade"></property>
+		<property name="remoteExamQuestionLabelFacade" ref="remoteExamQuestionLabelFacade"></property>
+		<property name="remoteExamQuestionTypeFacade" ref="remoteExamQuestionTypeFacade"></property>
+		<property name="remoteExamQuestionFacade" ref="remoteExamQuestionFacade"></property>
+		<property name="remoteExamPaperTypeFacade" ref="remoteExamPaperTypeFacade"></property>
+		<property name="remoteExamPaperFacade" ref="remoteExamPaperFacade"></property>
+		<property name="remoteExamExaminTypeFacade" ref="remoteExamExaminTypeFacade"></property>
+		<property name="remoteExamExaminationFacade" ref="remoteExamExaminationFacade"></property>
+	</bean>
+
+	<bean id="examWebServiceLocalImpl" class="com.hys.exam.interfaces.impl.ExamWebServiceLocalImpl">
+		<property name="localExamPropValFacade" ref="localExamPropValFacade"></property>
+		<property name="localExamQuestionLabelFacade" ref="localExamQuestionLabelFacade"></property>
+		<property name="localExamQuestionTypeFacade" ref="localExamQuestionTypeFacade"></property>
+		<property name="localExamQuestionFacade" ref="localExamQuestionFacade"></property>
+		<property name="localExamPaperTypeFacade" ref="localExamPaperTypeFacade"></property>
+		<property name="localExamPaperFacade" ref="localExamPaperFacade"></property>
+		<property name="localExamExaminTypeFacade" ref="localExamExaminTypeFacade"></property>
+		<property name="localExamExaminationFacade" ref="localExamExaminationFacade"></property>
+	</bean>
+
+</beans>

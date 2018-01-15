@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="groupClassInfoManage" class="com.hys.exam.service.local.impl.GroupClassInfoManageImpl">
+		<property name="groupClassInfoDAO" ref="groupClassInfoDAO" />
+	</bean>
+	
+	<!-- 话题讨论Service -->
+	<bean id="topicDiscussionManage" class="com.hys.exam.service.local.impl.TopicDiscussionManageImpl">
+		<property name="topicDiscussionDAO" ref="topicDiscussionDAO" />
+	</bean>
+	
+	<bean id="localExamQuestionManage" class="com.hys.exam.service.local.impl.ExamQuestionManageImpl">
+		<property name="localExamQuestionDAO" ref="localExamQuestionDAO" />
+		<property name="localExamQuestionKeyDAO" ref="localExamQuestionKeyDAO" />
+		<property name="localExamQuestionPropDAO" ref="localExamQuestionPropDAO" />
+		<property name="localExamQuestionPropValCascadeDAO" ref="localExamQuestionPropValCascadeDAO" />
+	</bean>
+
+	<bean id="localExamQuestionFacade" class="com.hys.exam.sessionfacade.local.impl.ExamQuestionFacadeImpl">
+		<property name="localExamQuestionManage" ref="localExamQuestionManage" />
+	</bean>
+
+	<bean id="localExamQuestionLabelManage" class="com.hys.exam.service.local.impl.ExamQuestionLabelManageImpl">
+		<property name="localExamQuestionLabelDAO" ref="localExamQuestionLabelDAO" />
+	</bean>
+
+	<bean id="localExamQuestionLabelFacade" class="com.hys.exam.sessionfacade.local.impl.ExamQuestionLabelFacadeImpl">
+		<property name="localExamQuestionLabelManage" ref="localExamQuestionLabelManage" />
+	</bean>
+	
+	<bean id="localExamPropValManage" class="com.hys.exam.service.local.impl.ExamPropValManageImpl">
+		<property name="localExamPropValDAO" ref="localExamPropValDAO"/>
+		<property name="localExamQuestionDAO" ref="localExamQuestionDAO" />
+		<property name="localExamQuestionPropDAO" ref="localExamQuestionPropDAO" />
+		<property name="localExamQuestionPropValCascadeDAO" ref="localExamQuestionPropValCascadeDAO" />		
+	</bean>
+	
+	<bean id="localExamPropValFacade" class="com.hys.exam.sessionfacade.local.impl.ExamPropValFacadeImpl">
+		<property name="localExamPropValManage" ref="localExamPropValManage"/>
+	</bean>
+	
+	<bean id="localExamImportQuestManage" class="com.hys.exam.service.local.impl.ExamImportQuestManageImpl">
+		<property name="localExamImportQuestAttDAO" ref="localExamImportQuestAttDAO"></property>
+	</bean>
+	
+	<bean id="localExamQuestionTypeManage" class="com.hys.exam.service.local.impl.ExamQuestionTypeManageImpl">
+		<property name="localExamQuestionTypeDAO" ref="localExamQuestionTypeDAO"></property>
+	</bean>
+	
+	<bean id="localExamQuestionTypeFacade" class="com.hys.exam.sessionfacade.local.impl.ExamQuestionTypeFacadeImpl">
+		<property name="localExamQuestionTypeManage" ref="localExamQuestionTypeManage"></property>
+	</bean>
+	
+	<bean id="localExamOlemPropManage" class="com.hys.exam.service.local.impl.ExamOlemPropManageImpl">
+		<property name="localExamOlemPropDAO" ref="localExamOlemPropDAO"></property>
+	</bean>
+	
+	<bean id="localExamOlemPropFacade" class="com.hys.exam.sessionfacade.local.impl.ExamOlemPropFacadeImpl">
+		<property name="localExamOlemPropManage" ref="localExamOlemPropManage"></property>
+	</bean>
+	
+	<bean id="localExamExaminTypeManage" class="com.hys.exam.service.local.impl.ExamExaminTypeManageImpl">
+		<property name="localExamExaminTypeDAO" ref="localExamExaminTypeDAO"></property>
+	</bean>
+	
+	<bean id="localExamExaminTypeFacade" class="com.hys.exam.sessionfacade.local.impl.ExamExaminTypeFacadeImpl">
+		<property name="localExamExaminTypeManage" ref="localExamExaminTypeManage"></property>
+	</bean>		
+	
+	<bean id="localExamPaperTypeManage" class="com.hys.exam.service.local.impl.ExamPaperTypeManageImpl">
+		<property name="localExamPaperTypeDAO" ref="localExamPaperTypeDAO"></property>
+	</bean>
+	
+	<bean id="localExamPaperTypeFacade" class="com.hys.exam.sessionfacade.local.impl.ExamPaperTypeFacadeImpl">
+		<property name="localExamPaperTypeManage" ref="localExamPaperTypeManage"></property>
+	</bean>
+	
+	<bean id="localExamPaperManage" class="com.hys.exam.service.local.impl.ExamPaperManageImpl">
+		<property name="localExamPaperDAO" ref="localExamPaperDAO"></property>
+		<property name="localExamPaperFasterTacticDAO" ref="localExamPaperFasterTacticDAO"></property>
+	</bean>	
+	
+	<bean id="localExamPaperFacade" class="com.hys.exam.sessionfacade.local.impl.ExamPaperFacadeImpl">
+		<property name="localExamPaperManage" ref="localExamPaperManage"></property>
+		<property name="localExamQuestionManage" ref="localExamQuestionManage" />
+		<property name="localExamPropValManage" ref="localExamPropValManage" />
+	</bean>	
+	
+	<bean id="localExamExaminationManage" class="com.hys.exam.service.local.impl.ExamExaminationManageImpl">
+		<property name="localExamExaminationDAO" ref="localExamExaminationDAO"></property>
+		<property name="localExamQuestionKeyDAO" ref="localExamQuestionKeyDAO"></property>
+	</bean>	
+	
+	<bean id="localExamExaminationFacade" class="com.hys.exam.sessionfacade.local.impl.ExamExaminationFacadeImpl">
+		<property name="localExamExaminationManage" ref="localExamExaminationManage"></property>
+	</bean>	
+
+	<bean id="localExpertManageManage" class="com.hys.exam.service.local.impl.ExpertManageManageImpl">
+		<property name="localExpertManageDAO" ref="localExpertManageDAO"></property>
+	</bean>	
+	
+	<bean id="localMaterialManageManage" class="com.hys.exam.service.local.impl.MaterialManageManageImpl">
+		<property name="localMaterialManageDAO" ref="localMaterialManageDAO"></property>
+	</bean>	
+	
+	<bean id="localCaseManage" class="com.hys.exam.service.local.impl.CaseManageImpl">
+		<property name="localCaseDAO" ref="localCaseDAO"></property>
+	</bean>
+
+	<bean id="localExpertGroupManage" class="com.hys.exam.service.local.impl.ExpertGroupManageImpl">
+		<property name="localExpertGroupDAO" ref="localExpertGroupDAO"></property>
+	</bean>	
+	
+	<bean id="localExamPropListByDirectManage" class="com.hys.exam.service.local.impl.ExamPropListByDirectManageImpl">
+		<property name="localExamPropListByDirectDAO" ref="localExamPropListByDirectDAO"/>
+	</bean>
+	
+	<bean id="localStudyGuideManage" class="com.hys.exam.service.local.impl.StudyGuideManageImpl">
+		<property name="localStudyGuideManageDAO" ref="localStudyGuideManageDAO"/>	
+	</bean>
+	
+	<bean id="localQualityModelManage" class="com.hys.exam.service.local.impl.QualityModelManageImpl">
+		<property name="localQualityModelManageDAO" ref="localQualityModelManageDAO"/>	
+	</bean>
+	<bean id="localUserImageManage" class="com.hys.exam.service.local.impl.UserImageManageImpl">
+		<property name="localUserImageManageDAO" ref="localUserImageManageDAO"/>	
+	</bean>
+	
+	
+	<bean id="localCVManage" class="com.hys.exam.service.local.impl.CVManageImpl">
+		<property name="localCVManageDAO" ref="localCVManageDAO"/>	
+	</bean>
+	<bean id="localCVSetManage" class="com.hys.exam.service.local.impl.CVSetManageImpl">
+		<property name="localCVSetManageDAO" ref="localCVSetManageDAO"/>
+		<property name="localExpertManageDAO" ref="localExpertManageDAO"/>	
+	</bean>
+	<bean id="localSystemMenuManage" class= "com.hys.exam.service.local.impl.SystemMenuManageImpl">
+		<property name = "localSystemMenuManageDAO" ref = "localSystemMenuManageDAO"/>
+	</bean>
+
+	<bean id="localOrgManage" class="com.hys.exam.service.local.impl.OrgManageImpl">
+		<property name="localOrgDAO" ref="localOrgDAO"></property>
+	</bean>	
+	
+	<bean id="localSentenceManage" class="com.hys.exam.service.local.impl.SentenceManageImpl">
+		<property name="localSentenceMangeDAO" ref="localSentenceMangeDAO"></property>
+	</bean>	
+	
+	<bean id="localBannerManage" class="com.hys.exam.service.local.impl.BannerManageImpl">
+		<property name="localBannerManageDAO" ref="localBannerManageDAO"></property>
+	</bean>	
+	<bean id="feedbackManage" class="com.hys.exam.service.local.impl.FeedManageImpl">
+		<property name="feedManageDAO" ref="feedManageDAO"></property>
+	</bean>	
+	<bean id="replyManage" class="com.hys.exam.service.local.impl.ReplyManageImpl">
+		<property name="replyManageDAO" ref="replyManageDAO"></property>
+	</bean>	
+		<bean id="messageManage" class="com.hys.exam.service.local.impl.MessageManageImpl">
+		<property name="messageManageDAO" ref="messageManageDAO"></property>
+	</bean>	
+	<!--  -->
+	
+	
+	<bean id="xiangYiProvinceService" class="com.hys.xiangyi.service.local.impl.XiangYiProvinceServiceImpl">
+		<property name="xiangYiProvinceDAO" ref="xiangYiProvinceDAO"></property>
+	</bean>	
+	
+	<bean id="localEditionManage" class="com.hys.exam.service.local.impl.EditionManageImpl">
+		<property name="localEditionManageDAO" ref="localEditionManageDAO"></property>
+		<property name="expertManageManage" ref="localExpertManageManage"></property>
+	</bean>	
+	
+	
+	<bean id="localContentIssueManage" class= "com.hys.exam.service.local.impl.ContentIssueManageImpl">
+		<property name = "localContentIssueManageDAO" ref = "localContentIssueManageDAO"/>
+	</bean>
+	
+	
+		<!-- 学习记录(课程) -->
+    <bean id="localLogStudyCVUnitManage" class="com.hys.exam.service.local.impl.LogStudyCVUnitManageImpl">
+		<property name="localLogStudyCVUnitDAO" ref="localLogStudyCVUnitDAO" />
+	</bean>
+	
+		
+		<!-- 证书service-->
+	<bean id="cvUnitManage" class="com.hys.exam.service.local.impl.CVUnitManageImpl">
+		<property name="cvUnitManageDAO" ref="cvUnitManageDAO"></property>
+	</bean>
+	
+	<!-- 直播课程 -->
+	<bean id="localCvLiveManage" class="com.hys.exam.service.local.impl.CvLiveManageImpl">
+		<property name="localCvLiveManageDAO" ref="localCvLiveManageDAO"/>	
+	</bean>
+	<!-- 登录限制配置 -->
+	<bean id="systemConfigManage" class="com.hys.exam.service.local.impl.SystemConfigManageImpl">
+		<property name="systemConfigDAO" ref="systemConfigDAO"/>	
+	</bean>
+	<!-- 授权改进 -->
+	<bean id="cVSetAuthorizationManage" class="com.hys.exam.service.local.impl.CVSetAuthorizationManageImpl">
+		<property name="cVSetAuthorizationDAO" ref="cVSetAuthorizationDAO"/>
+	</bean>
+	
+</beans>

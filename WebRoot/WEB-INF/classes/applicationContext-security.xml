@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.xsd">
+
+	<http auto-config="true" access-denied-page="/commons/403.jsp">
+	
+		<intercept-url pattern="/css/**" filters="none" />
+		<intercept-url pattern="/js/**" filters="none" />
+		<intercept-url pattern="/images/**" filters="none" />
+		<intercept-url pattern="/fckeditor/**" filters="none" />
+		<intercept-url pattern="/commons/**" filters="none" />
+		<intercept-url pattern="/remote/**" filters="none" />
+		<intercept-url pattern="/login.jsp" filters="none" />
+		<intercept-url pattern="/udeitor/**" filters="none" />
+		<intercept-url pattern="/new_page/**" filters="none" />
+		<intercept-url pattern="/peixun_page/**" filters="none" />
+
+		<!-- 外部查看试卷   -->
+		
+		<intercept-url pattern="/paperManage/paperList2.do" filters="none" />
+		
+		<intercept-url pattern="/paperManage/paperView.do" filters="none" />
+		
+		<!-- 外部答题 -->
+		<intercept-url pattern="/exam/submitQuestion.do" filters="none" />
+		
+		<!-- 话题讨论 -->
+		<intercept-url pattern="/talk/topicDiscussionManage.do" filters="none" />
+		
+		<!-- 刷新权限 -->
+		<intercept-url pattern="/system/reloadrole.do" filters="none" />
+	
+		<form-login login-page="/login.jsp" authentication-failure-url="/login.jsp?error=true" default-target-url="/welcome.do"  always-use-default-target="true"/>
+
+		<logout logout-success-url="/logout.do" />
+	</http>
+
+	<beans:bean id="loggerListener" class="org.springframework.security.event.authentication.LoggerListener" />
+
+<!--	<authentication-provider>
+		<jdbc-user-service data-source-ref="dataSource" 
+			users-by-username-query="SELECT LOGIN_NAME AS USERNAME,PASSWORD,ENABLE AS ENABLED FROM HYS_USERS WHERE LOGIN_NAME = ?"
+					authorities-by-username-query="SELECT u.LOGIN_NAME AS USERNAME,r.NAME AS AUTHORITY FROM HYS_USERS u LEFT JOIN HYS_USER_ROLE_PROP p on p.USERID = u.ID JOIN HYS_ROLES r ON r.ID = p.ROLEID WHERE u.LOGIN_NAME = ?" />
+	</authentication-provider>
+-->
+	<authentication-provider>
+		<jdbc-user-service data-source-ref="dataSource" 
+			users-by-username-query="SELECT ACCOUNT_NAME AS USERNAME,ACCOUNT_PASSWORD AS PASSWORD,ACCOUNT_STATUS AS ENABLED FROM SYSTEM_ACCOUNT WHERE ACCOUNT_NAME = ? and ACCOUNT_STATUS = 1"
+					authorities-by-username-query="SELECT u.ACCOUNT_NAME AS USERNAME,r.ROLE_NAME AS AUTHORITY FROM SYSTEM_ACCOUNT u LEFT JOIN SYSTEM_ACCOUNT_ROLE p on p.ACCOUNT_ID = u.ACCOUNT_ID JOIN SYSTEM_ROLE r ON r.ROLE_ID = p.ROLE_ID WHERE u.ACCOUNT_NAME = ? and u.ACCOUNT_STATUS = 1 and r.`STATUS` = 1" />
+		<password-encoder ref="md5Encoder" />
+	</authentication-provider> 
+
+	<beans:bean id="customFilterInvocationDefinationSource" class="com.hys.auth.springsecurity.FilterInvocationDefinitionSourceFactoryBean">
+		<beans:property name="facade" ref="facade" />
+	</beans:bean>
+	 <beans:bean id="md5Encoder"
+                class="org.springframework.security.providers.encoding.Md5PasswordEncoder" />
+
+	<beans:bean id="filterSecurityInterceptor" class="org.springframework.security.intercept.web.FilterSecurityInterceptor" autowire="byType">
+		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" />
+		<beans:property name="objectDefinitionSource" ref="customFilterInvocationDefinationSource" />
+	</beans:bean>
+</beans:beans>

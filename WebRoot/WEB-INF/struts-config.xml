@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<data-sources />
+	<form-beans>
+	
+	    <form-bean name="fileUploadForm" type="com.hys.exam.struts.form.FileUploadForm"></form-bean>
+	    <form-bean name="fileUploadForm2" type="com.hys.exam.struts.form.FileUploadForm2"></form-bean>
+	    
+		<form-bean name="systemClientForm" type="com.hys.exam.struts.form.SystemClientForm">
+		</form-bean>
+		<form-bean name="systemSiteForm" type="com.hys.exam.struts.form.SystemSiteForm">
+		</form-bean>
+		<form-bean name="systemBugLogForm" type="com.hys.exam.struts.form.SystemBugLogForm">
+		</form-bean>
+		<form-bean name="systemUserForm" type="com.hys.exam.struts.form.SystemUserForm">
+		</form-bean>
+		<form-bean name="examQuestionForm" type="com.hys.exam.struts.form.ExamQuestionForm">
+		</form-bean>
+		
+		<form-bean name="systemCardForm" type="com.hys.exam.struts.form.SystemCardForm"></form-bean>
+		<form-bean name="systemCardTypeForm" type="com.hys.exam.struts.form.SystemCardTypeForm"></form-bean>
+		<form-bean name="systemCardOrderForm" type="com.hys.exam.struts.form.SystemCardOrderForm"></form-bean>
+		
+		<form-bean name="systemForm" type="com.hys.exam.struts.form.ExamQuestionForm">
+		</form-bean>
+		<form-bean name="examPropForm" type="com.hys.exam.struts.form.ExamPropForm">
+		</form-bean>
+		
+		<form-bean name="importQuestForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="uploadfile" type="org.apache.struts.upload.FormFile">
+			</form-property>
+		</form-bean>
+		
+		<form-bean name="new_importQuestForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="imgFile" type="org.apache.struts.upload.FormFile">
+			</form-property>
+		</form-bean>
+		
+		<form-bean name="diseaseForm" type="com.hys.exam.struts.form.CaseCaseForm">
+		</form-bean>
+		<form-bean name="examOlemPropForm" type="com.hys.exam.struts.form.ExamOlemPropForm"></form-bean>
+		
+		<form-bean name="paperForm" type="com.hys.exam.struts.form.OlemPaperForm"></form-bean>
+		
+		<form-bean name="courseForm" type="com.hys.exam.struts.form.StudyCourseForm"></form-bean>
+
+		<form-bean name="questForm" type="com.hys.exam.struts.form.QuestionForm"></form-bean>
+		
+		<form-bean name="systemIndustryForm" type="com.hys.exam.struts.form.SystemIndustryForm"></form-bean>
+		
+		<form-bean name="systemNewsForm" type="com.hys.exam.struts.form.SystemNewsForm"></form-bean>
+		<form-bean name="materialInfoForm" type="com.hys.exam.struts.form.MaterialInfoForm"></form-bean>
+		
+		<form-bean name="expertInfoForm" type="com.hys.exam.struts.form.ExpertInfoForm"></form-bean>
+		
+		<form-bean name="expertGroupForm" type="com.hys.exam.struts.form.ExpertGroupForm">
+		</form-bean>
+		<form-bean name="expertInfoForm" type="com.hys.exam.struts.form.ExpertInfoForm"></form-bean>
+		
+	</form-beans>
+
+	<global-forwards>
+		<forward name="token" path="/commons/token.jsp" />
+		<forward name="failure" path="/commons/failure.jsp" />
+	</global-forwards>
+
+	<action-mappings>
+	
+	  <!-- 文件上传管理 -->
+	  <action path="/file/fileUpload" type="com.hys.exam.struts.action.FileUploadAction" name="fileUploadForm"  scope="request">
+			<forward name="SUCCESS" path="/questionManage/questionManage.do" redirect="true"></forward>
+			<forward name="FAILURE" path="/commons/failure.jsp"></forward>
+	  </action>
+	  
+	  <!-- 文件上传管理(多图上传功能) -->
+	  <action path="/file/fileUpload2" type="com.hys.exam.struts.action.FileUploadAction2" name="fileUploadForm2"  scope="request">
+			<forward name="SUCCESS" path="/questionManage/questionManage.do" redirect="true"></forward>
+			<forward name="FAILURE" path="/commons/failure.jsp"></forward>
+	  </action>
+	
+	   <!-- 组课管理 -->
+	   <action path="/groupManage/groupClassInfoManage" type="com.hys.exam.struts.action.GroupClassInfoAction" scope="request" name="examQuestionForm">
+			<forward name="list" path="/peixun_page/groupClassInfo/groupClassList.jsp" />
+			<forward name="queryGroup" path="/peixun_page/QuestionManage/examAddQuestionA.jsp"/>
+			<forward name="save" path="/peixun_page/QuestionManage/examAddQuestionA.jsp"/>
+			<forward name="getAJAX" path="/peixun_page/QuestionManage/examAddQuestionA.jsp"/>
+			<forward name="chuanzhi" path="/peixun_page/QuestionManage/examAddQuestionA.jsp"/>
+			<forward name="review" path="/peixun_page/groupClassInfo/review.jsp"/>
+			<forward name="reviewVideo" path="/peixun_page/groupClassInfo/reviewVideo.jsp"/>
+			<forward name="unionEdit2" path="/peixun_page/groupClassInfo/unionEdit2.jsp"/>
+			<forward name="unionEditView" path="/peixun_page/groupClassInfo/unionEditView.jsp"/>
+		</action>
+	
+		<!-- 题库管理-->
+		<action path="/questionManage/questionManage"
+			type="com.hys.exam.struts.action.ExamQuestionManageAction" scope="request"
+			name="examQuestionForm">
+			<forward name="SUCCESS" path="/new_page/QuestionManage/examQuestionList.jsp"></forward>
+			<forward name="main2" path="/new_page/QuestionManage/examQuestionCheck.jsp"></forward>
+		</action>
+		
+		<action path="/questionManage/SearchNotPropQuestion"
+			type="com.hys.exam.struts.action.ExamNotPropQuestionAction" scope="request"
+			name="examQuestionForm">
+			<forward name="SUCCESS" path="/page/examNotPropQuestionList.jsp"></forward>
+		</action>		
+
+		<!-- 添加试题 -->
+		<action path="/questionManage/swapQuestionLabel"
+			type="com.hys.exam.struts.action.SwapQuestionLabelAction" scope="request">
+			<forward name="questionA" path="/new_page/QuestionManage/examAddQuestionA.jsp" />
+			<forward name="questionB" path="/new_page/QuestionManage/examAddQuestionB.jsp" />
+			<forward name="questionC" path="/new_page/QuestionManage/examAddQuestionC.jsp" />
+			<forward name="questionD" path="/new_page/QuestionManage/examAddQuestionD.jsp" />
+			<forward name="questionB1" path="/new_page/QuestionManage/examAddQuestionB1.jsp" />
+			<forward name="questionA3" path="/new_page/QuestionManage/examAddQuestionA3.jsp" />
+		</action>
+		
+		<!-- 更新试题状态 -->
+		<action path="/questionManage/updateQuestionState"
+			type="com.hys.exam.struts.action.ExamUpdateQuestionStateAction" name="examQuestionForm" scope="request">
+			<forward name="SUCCESS" path="/questionManage/questionManage.do" redirect="true"></forward>
+		</action>
+		
+		<!-- 删除试题 -->
+		<action path="/questionManage/deleteQuestion"
+			type="com.hys.exam.struts.action.ExamDelQuestionAction" name="examQuestionForm" scope="request">
+		</action>		
+		
+		<!-- 导入试题 -->
+		<action path="/questionManage/importQuestion"
+			type="com.hys.exam.struts.action.ExamImportQuestionAction" name="importQuestForm"  scope="request">
+			<forward name="SUCCESS" path="/questionManage/questionManage.do" redirect="true"></forward>			
+		</action>
+		<action path="/questionManage/importQuestion2"
+			type="com.hys.exam.struts.action.ExamImportQuestion2Action" name="importQuestForm"  scope="request">
+			<forward name="SUCCESS" path="/questionManage/questionManage.do" redirect="true"></forward>
+			<forward name="FAILURE" path="/new_page/QuestionManage/examImportQuestion.jsp"></forward>
+		</action>
+	
+		<!-- 导出试题 -->
+		<action path="/questionManage/exportQuestion" type="com.hys.exam.struts.action.ExamExportQuestionAction" name="examQuestionForm" scope="request">
+		</action>
+		<action path="/questionManage/exportQuestionAndProp" type="com.hys.exam.struts.action.ExamExportQuestionAndPropAction" name="examQuestionForm" scope="request">
+		</action>
+		
+		<action path="/questionManage/compareQuestion"
+			type="com.hys.exam.struts.action.ExamCompareQuestionAction" name="importQuestForm"  scope="request">
+			<forward name="SUCCESS" path="/page/examCompareResult.jsp"></forward>
+			<forward name="FAILURE" path="/page/examImportQuestion.jsp"></forward>
+		</action>		
+
+		<action path="/questionManage/uploadFile" scope="request"
+			name="new_importQuestForm" type="com.hys.exam.struts.action.UploadFileAction">
+		</action>
+
+		<!-- 查看试题 -->
+		<action path="/questionManage/viewQuestion"
+			type="com.hys.exam.struts.action.ExamViewQuestionAction" name="examQuestionForm"  scope="request">
+			<forward name="VIEW_A" path="/new_page/QuestionManage/examEditQuestionVerifyA.jsp" />
+			<forward name="VIEW_B" path="/new_page/QuestionManage/examEditQuestionVerifyB.jsp" />
+			<forward name="VIEW_C" path="/new_page/QuestionManage/examEditQuestionVerifyC.jsp" />
+			<forward name="VIEW_D" path="/new_page/QuestionManage/examEditQuestionVerifyD.jsp" />
+			<forward name="VIEW_B1" path="/new_page/QuestionManage/examEditQuestionVerifyB1.jsp" />
+			<forward name="VIEW_A3" path="/new_page/QuestionManage/examEditQuestionVerifyA3.jsp" />
+			
+			<forward name="EDIT_A" path="/new_page/QuestionManage/examEditQuestionA.jsp" />
+			<forward name="EDIT_B" path="/new_page/QuestionManage/examEditQuestionB.jsp" />
+			<forward name="EDIT_C" path="/new_page/QuestionManage/examEditQuestionC.jsp" />
+			<forward name="EDIT_D" path="/new_page/QuestionManage/examEditQuestionD.jsp" />
+			<forward name="EDIT_B1" path="/new_page/QuestionManage/examEditQuestionB1.jsp" />
+			<forward name="EDIT_A3" path="/new_page/QuestionManage/examEditQuestionA3.jsp" />
+			
+			<forward name="NOT_PROP_A" path="/page/examEditNotPropQuestionA.jsp" />
+			<forward name="NOT_PROP_B" path="/page/examEditNotPropQuestionB.jsp" />
+			<forward name="NOT_PROP_C" path="/page/examEditNotPropQuestionC.jsp" />
+			<forward name="NOT_PROP_D" path="/page/examEditNotPropQuestionD.jsp" />
+			<forward name="NOT_PROP_B1" path="/page/examEditNotPropQuestionB1.jsp" />
+			<forward name="NOT_PROP_A3" path="/page/examEditNotPropQuestionA3.jsp" />
+			
+		</action>
+		
+		<action path="/questionManage/batchAddQuestionProp" 
+			type="com.hys.exam.struts.action.ExamAddQuestionPropAction" name="examQuestionForm"  scope="request">
+			<forward name="SUCCESS" path="/questionManage/SearchNotPropQuestion.do"></forward>
+		</action>
+		
+		<!-- 试题高级查询 -->
+		<action path="/questionManage/adSearchQuestion"
+			type="com.hys.exam.struts.action.ExamAdSearchQuestionAction" name="examQuestionForm" scope="request">
+		</action>
+		
+		<!-- 导出试题属性 -->
+		<action path="/questionManage/exportProp"
+			type="com.hys.exam.struts.action.ExamExportPropAction" name="examQuestionForm" scope="request">
+		</action>
+		
+		<!-- 素材管理 -->
+		<action path="/material/MaterialManage" name="materialInfoForm"
+			type="com.hys.exam.struts.action.material.MaterialManageAction" scope="request">
+			<forward name="list" path="/new_page/materialManage/materialList.jsp" />
+			<forward name="main2" path="/new_page/materialManage/materialVerify.jsp" />
+			<forward name="add" path="/new_page/materialManage/materialAdd.jsp" />
+			<forward name="detail" path="/new_page/materialManage/materialEdit.jsp" />
+			<forward name="info" path="/new_page/materialManage/materialInfo.jsp" />
+		</action>
+		
+		<!-- 审核素材 -->
+		<action path="/material/MaterialVerify" type="com.hys.exam.struts.action.material.MaterialManageAction" name="materialInfoForm" scope="request">
+			<forward name="list" path="/new_page/materialManage/materialVerify.jsp" />
+			<forward name="main2" path="/new_page/materialManage/materialVerify.jsp" />
+			<forward name="edit" path="/new_page/materialManage/materialEdit.jsp" />
+			<forward name="detail" path="/new_page/materialManage/materialInfo.jsp" />
+		</action>
+	
+		<action path="/materialManage/downLoadMaterialListFile" type="com.hys.exam.struts.action.material.MaterialExportAction" name="materialInfoForm" scope="request">
+		</action>		
+
+		<action path="/propManage/propList" type="com.hys.exam.struts.action.ExamPropListAction" name="examQuestionForm" scope="request">
+			<forward name="SUCCESS" path="/new_page/propManage/examPropList.jsp"></forward>
+		</action>
+		
+		<action path="/propManage/icdList" type="com.hys.exam.struts.action.ExamIcdListAction" name="examPropForm" scope="request">
+			<forward name="SUCCESS" path="/new_page/propManage/examIcdList.jsp"></forward>
+		</action>
+		
+		
+		
+		<action path="/propManage/propBaseList" type="com.hys.exam.struts.action.ExamPropAction" name="examQuestionForm" scope="request">
+			<forward name="SUCCESS" path="/new_page/propManage/examBasePropList.jsp"></forward>
+		</action>		
+		
+		<action path="/propManage/sourceTypeList" type="com.hys.exam.struts.action.ExamSourceTypeAction" name="examPropForm" scope="request">
+			<forward name="SUCCESS" path="/new_page/propManage/examSourceTypeList.jsp"></forward>
+		</action>		
+		
+		<action path="/propManage/sourceList" type="com.hys.exam.struts.action.ExamSourceAction" name="examPropForm" scope="request">
+			<forward name="SUCCESS" path="/peixun_page/CVSet/manage/examSourceList.jsp"></forward>
+			<forward name="SHOWREL" path="/new_page/propManage/examShowSrcRel.jsp"></forward>
+		</action>		
+		
+		<action path="/propManage/addIcd" type="com.hys.exam.struts.action.ExamAddIcdAction" name="examPropForm" scope="request">
+		</action>
+		
+		<action path="/propManage/editIcd" type="com.hys.exam.struts.action.ExamUpdateIcdAction" name="examPropForm" scope="request">
+		</action>	
+		
+		<action path="/propManage/delIcd" type="com.hys.exam.struts.action.ExamDelIcdAction" name="examPropForm" scope="request">
+		</action>
+		
+		<action path="/propManage/showIcdRel" type="com.hys.exam.struts.action.ExamIcdRelAction" name="examPropForm" scope="request">
+			<forward name="SUCCESS" path="/new_page/propManage/examShowIcdRel.jsp"></forward>
+		</action>		
+		
+		<action path="/propManage/addProp" type="com.hys.exam.struts.action.ExamAddPropAction" name="examPropForm" scope="request">
+		</action>
+		
+		<action path="/propManage/editProp" type="com.hys.exam.struts.action.ExamUpdatePropAction" name="examPropForm" scope="request">
+		</action>	
+		
+		<action path="/propManage/delProp" type="com.hys.exam.struts.action.ExamDelPropAction" name="examPropForm" scope="request">
+		</action>
+		
+		<action path="/propManage/viewProp" type="com.hys.exam.struts.action.ExamViewPropValAction" name="examPropForm" scope="request">
+		</action>
+		
+		<action path="/propManage/moveProp" type="com.hys.exam.struts.action.ExamMovePropValAction" name="examPropForm" scope="request">
+		</action>
+		
+		<action path="/propManage/replaceQuestionProp" type="com.hys.exam.struts.action.ExamReplaceQuestionPropValAction" name="examPropForm" scope="request">
+		</action>
+		
+		<action path="/propManage/olemPropList" type="com.hys.exam.struts.action.ExamOlemPropListAction" scope="request">
+			<forward name="SUCCESS" path="/page/propManage/examOlemPropList.jsp"></forward>
+		</action>
+		
+		<action path="/propManage/olemAddProp" type="com.hys.exam.struts.action.ExamOlemAddPropAction" scope="request" name="examOlemPropForm">
+		</action>
+		
+		<action path="/propManage/editOlemProp" type="com.hys.exam.struts.action.ExamOlemUpdatePropAction" scope="request" name="examOlemPropForm">
+		</action>
+		
+		<action path="/propManage/delOlemProp" type="com.hys.exam.struts.action.ExamOlemDelPropAction" scope="request" name="examOlemPropForm">
+		</action>
+			
+		<action path="/propManage/olemAddPropList" type="com.hys.exam.struts.action.ExamBasePropList" scope="request" name="examPropForm">
+			<forward name="SUCCESS" path="/page/propManage/examAddPropList.jsp"></forward>
+		</action>
+		
+		<action path="/propManage/olemBasePropList" type="com.hys.exam.struts.action.ExamOlemBasePropAction" scope="request" name="examPropForm">
+			<forward name="SUCCESS" path="/page/propManage/examOlemBasePropList.jsp"></forward>
+		</action>
+		
+		
+		<action path="/propManage/olemDelBaseProp" type="com.hys.exam.struts.action.ExamOlemDelBasePropAction" scope="request" name="examPropForm">
+		</action>
+		
+		<action path="/propManage/olemAddBaseProp" type="com.hys.exam.struts.action.ExamOlemAddBasePropAction" scope="request" name="examPropForm">
+		</action>		
+		
+		
+		<action path="/propManage/importOlemProp" type="com.hys.exam.struts.action.ExamOlemImpPropAction" scope="request" name="importQuestForm">
+			<forward name="SUCCESS" path="/propManage/olemPropList.do"></forward>
+		</action>
+		
+		
+		<action path="/system/systemClient" name="systemClientForm"
+			type="com.hys.exam.struts.action.SystemClientAction" scope="request">
+			<forward name="list" path="/page/systemClient/systemClientList.jsp" />
+			<forward name="add"  path="/page/systemClient/systemClientAdd.jsp" />
+			<forward name="edit" path="/page/systemClient/systemClientEdit.jsp" />
+			<forward name="view" path="/page/systemClient/systemClientView.jsp" />
+		</action>
+		
+		<action path="/system/systemSite" name="systemSiteForm"
+			type="com.hys.exam.struts.action.SystemSiteAction" scope="request">
+			<forward name="list" path="/page/systemSite/systemSiteList.jsp" />
+			<forward name="add"  path="/page/systemSite/systemSiteAdd.jsp" />
+			<forward name="edit" path="/page/systemSite/systemSiteEdit.jsp" />
+			<forward name="view" path="/page/systemSite/systemSiteView.jsp" />
+			<forward name="exam" path="/page/systemSite/systemSiteExam.jsp" />
+			<forward name="siteExam" path="/page/systemSite/siteExam.jsp" />
+		</action>
+		
+		<!-- 继教地区 -->
+		<action path="/system/systemAdminOrgan" 
+			type="com.hys.exam.struts.action.system.SystemAdminOrganAction" scope="request">
+			<forward name="list" path="/page/systemAdminOrgan/systemAdminOrganList.jsp" />
+			<forward name="edit" path="/page/systemAdminOrgan/systemAdminOrganEdit.jsp" />
+			<forward name="view" path="/page/systemAdminOrgan/systemAdminOrganView.jsp" />
+			<forward name="subList" path="/page/systemAdminOrgan/systemAdminOrganSubList.jsp" />
+		</action>
+
+		<!-- 学习卡-站点-继教地区 -->
+		<action path="/system/SystemCardTypeSiteOrg" 
+			type="com.hys.exam.struts.action.system.SystemCardTypeSiteOrganAction" scope="request">
+			<forward name="authorized-site-list" path="/page/systemSite/authorized-site-list.jsp" />
+			<forward name="authorized-organ-list" path="/page/systemSite/authorized-organ-list.jsp" />
+			<forward name="authorized-paycardorgan-list" path="/page/systemSite/authorized-paycardorgan-list.jsp" />
+		</action>
+		
+		<action path="/system/systemUser" name="systemUserForm"
+			type="com.hys.exam.struts.action.SystemUserAction" scope="request">
+			<forward name="list" path="/new_page/systemUser/systemUserList.jsp"/>
+			<forward name="add"  path="/new_page/systemUser/systemUserList.jsp"/>
+			<forward name="edit" path="/new_page/SystemUserManage/systemUserList.jsp"/>
+			<forward name="view" path="/page/systemUser/systemUserView.jsp"/>
+			<forward name="update" path="/system/systemUser.do?method=list"/>
+		</action>
+		
+		<action path="/system/systemUserInfImport" name="importQuestForm"
+			type="com.hys.exam.struts.action.SysUserInfImportAction" scope="request">
+			<forward name="success" path="/userManage/getUsers.do"/>
+			<forward name="FAILURE" path="/new_page/systemUser/systemUserDownLoad.jsp"/>
+		</action>
+
+		<action path="/system/siteExamList"
+			type="com.hys.exam.struts.action.SiteExamListAction" scope="request">
+			<forward name="SUCCESS" path="/page/systemSite/siteExamList.jsp" />
+		</action>
+
+		<action path="/system/siteExamSave"
+			type="com.hys.exam.struts.action.SiteExamSaveAction" scope="request">
+			<forward name="SUCCESS" path="/system/siteExamList.do" />
+		</action>
+		
+		<!-- 属性维护 -->
+		<action path="/system/SystemIndustry" name="systemIndustryForm"
+			type="com.hys.exam.struts.action.system.SystemIndustryAction" scope="request">
+			<forward name="list" path="/page/systemProp/systemIndustry.jsp" />
+			<forward name="edit" path="/page/systemProp/systemIndustryEdit.jsp" />
+		</action>
+		
+		<!-- 栏目 -->
+		<action path="/system/SystemCategory"
+			type="com.hys.exam.struts.action.system.SystemCategoryAction" scope="request">
+			<forward name="list" path="/page/systemCategoryNews/categoryList.jsp" />
+			<forward name="update" path="/page/systemCategoryNews/categoryUpdate.jsp" />
+			<forward name="add" path="/page/systemCategoryNews/categoryAdd.jsp" />
+		</action>
+		<!-- 栏目 -->
+		<action path="/system/SystemNews"
+			type="com.hys.exam.struts.action.system.SystemNewsAction" scope="request" name="systemNewsForm">
+			<forward name="list" path="/page/systemCategoryNews/newsList.jsp" />
+			<forward name="update" path="/page/systemCategoryNews/newsUpdate.jsp" />
+			<forward name="add" path="/page/systemCategoryNews/newsAdd.jsp" />
+		</action>
+		
+		<!-- 能力 -->
+		<action path="/system/SystemIndustryAbility"
+			type="com.hys.exam.struts.action.system.SystemIndustryAbilityAction" scope="request">
+			<forward name="list" path="/page/systemProp/systemIndustryAbility.jsp" />
+			<forward name="edit" path="/page/systemProp/systemIndustryAbilityEdit.jsp" />
+			<forward name="abilityCourseList" path="/page/systemProp/systemAbilityCourse.jsp" />
+			<forward name="otherCourseList" path="/page/systemProp/studyCourse.jsp" />
+		</action>
+		
+		<!-- 学习卡 -->
+		<action path="/system/SystemCard" name="systemCardForm"
+			type="com.hys.exam.struts.action.system.SystemCardAction" scope="request">
+			<forward name="list" path="/page/systemCard/systemCard.jsp" />
+			<forward name="selectCardType" path="/page/systemCard/sub/selectCardType.jsp" />
+			<forward name="edit" path="/page/systemCard/systemCardEdit.jsp" />
+			<!-- 卡类型授权管理 -->
+			<forward name="allotList" path="/page/systemCard/systemCardAllot.jsp" />
+			<forward name="cardTypeList" path="/page/systemCard/sub/cardTypeList.jsp" />
+			<forward name="createCards" path="/page/systemCard/sub/createCards.jsp" />
+			<forward name="createCardList" path="/page/systemCard/systemCreateCardList.jsp" />
+		</action>
+		
+		<!-- 快递邮寄 -->
+		<action path="/system/SystemPostHistory" 
+			type="com.hys.exam.struts.action.system.SystemPostHistoryAction" scope="request">
+			<forward name="list" path="/page/systemUser/postList.jsp" />
+			<forward name="update" path="/page/systemUser/postUpdate.jsp" />
+		</action>
+		
+		<!-- 学习卡类型 -->
+		<action path="/system/SystemCardType" name="systemCardTypeForm"
+			type="com.hys.exam.struts.action.system.SystemCardTypeAction" scope="request">
+			<forward name="list" path="/page/systemCard/systemCardType.jsp" />
+			<forward name="edit" path="/page/systemCard/systemCardTypeEdit.jsp" />
+			<forward name="view" path="/page/systemCard/systemCardTypeView.jsp" />
+			<forward name="authorized-course-list" path="/page/systemCard/sub/authorized-course-list.jsp" />
+			<forward name="authorized-not-course-list" path="/page/systemCard/sub/authorized-not-course-list.jsp" />
+			<forward name="authorized-org-list" path="/page/systemCard/sub/authorized-org-list.jsp" />
+			<forward name="authorized-not-org-list" path="/page/systemCard/sub/authorized-not-org-list.jsp" />
+		</action>
+		
+		<action path="/system/SystemBugLog" name="systemBugLogForm"
+			type="com.hys.exam.struts.action.system.SystemBugLogAction" scope="request">
+			<forward name="list" path="/page/systemBugLog/systemBugLogList.jsp" />
+			<forward name="edit" path="/page/systemBugLog/systemBugLogEidt.jsp" />
+			<forward name="view" path="/page/systemBugLog/systemBugLogView.jsp" />
+		</action>
+		
+		
+		<!-- 学习卡订单 --> 
+		<action path="/system/SystemCardOrder" name="systemCardOrderForm"
+			type="com.hys.exam.struts.action.system.SystemCardOrderAction" scope="request">
+			<forward name="list" path="/page/systemCard/systemCardOrder.jsp" />
+			<forward name="edit" path="/page/systemCard/systemCardOrderEdit.jsp" />
+			<forward name="orderCardList" path="/page/systemCard/systemOrderCard.jsp" />
+		</action>		
+		
+		<!-- 卡状态管理 -->
+		<action path="/system/SystemCardStatus"
+			type="com.hys.exam.struts.action.system.SystemCardStatusAction" scope="request">
+			<forward name="list" path="/page/systemCard/systemCardStatus.jsp" />
+			<forward name="userBindList" path="/page/systemCard/sub/userBindList.jsp" />
+			<forward name="viewDetail" path="/page/systemCard/systemCardDetail.jsp" />
+		</action>		
+
+		<!-- 专家委员会 -->
+		<action path="/expert/ExpertGroupManage" name="expertGroupForm"
+			type="com.hys.exam.struts.action.expert.ExpertGroupAction" scope="request">
+			<!--新加 已绑定内容 -->
+			<forward name="editZWH" path="/new_page/expertManage/expertEditZWH.jsp" />
+			<!-- 新加 查看绑定的内容 -->
+			<forward name="viewZWH" path="/new_page/expertManage/expertViewZWH.jsp"></forward>
+			<!-- detailZWH  全貌 -->
+			<forward name="detailZWH" path="/new_page/expertManage/expertGroupDetailZWH.jsp" />
+			<!-- 原来没有引进资源不可点击 -->
+			<forward name="list" path="/new_page/expertManage/expertGroupList.jsp" />
+			<forward name="edit" path="/new_page/expertManage/expertGroupEdit.jsp" />
+			<forward name="detail" path="/new_page/expertManage/expertGroupDetail.jsp" />
+			
+		</action>
+		
+		<!-- 届期 -->
+		<action path="/expert/ExpertGroupTerm"
+			type="com.hys.exam.struts.action.expert.ExpertGroupTermAction" scope="request">
+			<forward name="SUCCESS" path="/new_page/expertManage/expertGroupTerm.jsp" />
+		</action>
+		
+		<!-- 学组 -->
+		<action path="/expert/ExpertSubGroup" name="expertGroupForm"
+			type="com.hys.exam.struts.action.expert.ExpertSubGroupAction" scope="request">
+			<forward name="list" path="/new_page/expertManage/expertSubGroupList.jsp" />
+			<forward name="edit" path="/new_page/expertManage/expertSubGroupEdit.jsp" />
+		</action>
+		
+		<!-- 学组成员 -->
+		<action path="/expert/ExpertSubGroupMember" name="expertInfoForm"
+			type="com.hys.exam.struts.action.expert.ExpertSubGroupMemberAction" scope="request">
+			<forward name="list" path="/new_page/expertManage/expertSubGroupMemberList.jsp" />
+			<forward name="edit" path="/new_page/expertManage/expertSubGroupMemberEdit.jsp" />
+			<forward name="add" path="/new_page/expertManage/expertEdit.jsp" />
+		</action>
+			
+				
+		
+		<!-- 届期管理 -->
+		<action path="/expert/ExpertTerm"
+			type="com.hys.exam.struts.action.expert.ExpertTermAction" scope="request">
+			<forward name="SUCCESS" path="/new_page/expertManage/expertTermList.jsp" />
+		</action>		
+		
+			<!-- 专家管理 -->
+		<!-- <action path="/expert/ExpertManage" name="expertInfoForm"
+			type="com.hys.exam.struts.action.expert.ExpertManageAction" scope="request">
+			<forward name="list" path="/new_page/expertManage/expertList.jsp" />
+			<forward name="edit" path="/new_page/expertManage/expertEdit.jsp" />
+			<forward name="detail" path="/new_page/expertManage/expertInfo.jsp" />
+			<forward name="select" path="/new_page/expertManage/expertSelect.jsp" />
+		</action> -->
+		<!--后台页面管理/名师   启用，解绑，绑定luobowen -->
+		<!-- 专家管理 -->
+	<!--  <action path="/expert/ExpertManageList" name="expertInfoForm"
+			type="com.hys.exam.struts.action.expert.ExpertManageActionList" scope="request">
+			
+		 	<forward name="list"
+				path="/peixun_page/userManage/expertManage/expertList.jsp" />
+				
+			<forward name="list"
+				path="/new_page/expertManage/expertList.jsp" />
+			<forward name="edit"
+				path="/peixun_page/userManage/expertManage/expertEdit.jsp" />
+			<forward name="detail"
+				path="/peixun_page/userManage/expertManage/expertInfo.jsp" />
+				
+				
+			<forward name="select" 
+					path="/new_page/expertManage/expertSelect.jsp" />
+		</action>  -->
+		
+		<!-- 病历管理 -->
+		<action path="/caseManage/caseManage" scope="request" type="com.hys.exam.struts.action.CaseManageAction">
+			<forward name="success" path="/new_page/case/caseManage.jsp" />
+		</action>
+		<!-- 患者添加 -->
+		<action path="/caseManage/casePatientSave" scope="request" type="com.hys.exam.struts.action.CasePetientAddAction">
+		</action>
+		<!-- 病例添加 -->
+		<action path="/caseManage/caseSaveCase" scope="request" type="com.hys.exam.struts.action.CaseCaseAddAction" name="diseaseForm">
+			<forward name="success" path="/caseManage/caseManage.do" />
+		</action>
+		<!-- 病例删除 -->
+		<action path="/caseManage/deleteCase" scope="request" type="com.hys.exam.struts.action.CaseDeleteCaseAction">
+			<forward name="success" path="/caseManage/caseManage.do" />
+		</action>
+		<action path="/caseManage/setCaseState" scope="request" type="com.hys.exam.struts.action.CaseSetCaseStateAction">
+		</action>
+		<action path="/caseManage/downLoadCaseListFile" scope="request" type="com.hys.exam.struts.action.CaseCaseExportAction">
+		</action>
+		<action path="/caseManage/caseEdit1" scope="request" type="com.hys.exam.struts.action.CaseEditAction1">
+			<forward name="edit1" path="/new_page/case/caseEdit1.jsp" />
+			<forward name="edit2" path="/new_page/case/caseEdit2.jsp" />
+		</action>
+		<action path="/caseManage/updateCase" scope="request" type="com.hys.exam.struts.action.CaseUpdateCaseAction" name="diseaseForm">
+		</action>
+		<action path="/caseManage/setCaseListState" scope="request" type="com.hys.exam.struts.action.CaseListStateAction">
+			<forward name="manage" path="/caseManage/caseManage.do?type=1" />
+			<forward name="manage1" path="/caseManage/caseManage.do?type=2" />
+		</action>
+		<!-- 选择学科 AJAX -->
+		<action path="/propManage/getPropListAjax" scope="request" type="com.hys.exam.struts.action.ExamPropListAjaxAction">
+		</action>
+
+		<action path="/propManage/regionList" type="com.hys.exam.struts.action.ExamRegionListAction" name="examQuestionForm" scope="request">
+			<forward name="SUCCESS" path="/new_page/propManage/examRegionList.jsp"></forward>
+		</action>
+		
+		<action path="/propManage/propHospitalList" type="com.hys.exam.struts.action.ExamPropAction" name="examQuestionForm" scope="request">
+			<forward name="SUCCESS" path="/new_page/propManage/propHospitalList.jsp"></forward>
+		</action>		
+		
+		<action path="/propManage/hospitalList" type="com.hys.exam.struts.action.ExamHospitalAction" scope="request">
+			<forward name="SUCCESS" path="/new_page/propManage/hospitalList.jsp"></forward>
+		</action>		
+		
+		<action path="/propManage/majorList" type="com.hys.exam.struts.action.ExamMajorAction" scope="request">
+			<forward name="SUCCESS" path="/new_page/propManage/majorList.jsp"></forward>
+		</action>
+
+		<action path="/expert/ExpertGroupListAjax" type="com.hys.exam.struts.action.expert.ExpertGroupAJAXAction" scope="request">
+		</action>
+	
+	</action-mappings>
+
+
+	<controller>
+		<set-property property="processorClass"
+			value="org.springframework.web.struts.AutowiringRequestProcessor" />
+	</controller>
+
+	<message-resources parameter="ApplicationResources" />
+
+</struts-config>
+

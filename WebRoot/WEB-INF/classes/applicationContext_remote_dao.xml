@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="remoteExamQuestionDAO" class="com.hys.exam.dao.remote.jdbc.ExamQuestionJDBCDAO">
+	</bean>
+
+	<bean id="remoteExamQuestionKeyDAO" class="com.hys.exam.dao.remote.jdbc.ExamQuestionKeyJDBCDAO">
+	</bean>
+
+	<bean id="remoteExamQuestionPropDAO" class="com.hys.exam.dao.remote.jdbc.ExamQuestionPropJDBCDAO">
+	</bean>
+
+	<bean id="remoteExamQuestionLabelDAO" class="com.hys.exam.dao.remote.jdbc.ExamQuestionLabelJDBCDAO">
+	</bean>
+
+	<bean id="remoteExamPropValDAO" class="com.hys.exam.dao.remote.jdbc.ExamPropValJDBCDAO">
+	</bean>
+	
+	<bean id="remoteExamQuestionPropValCascadeDAO" class="com.hys.exam.dao.remote.jdbc.ExamQuestionPropValCascadeJDBCDAO">
+	</bean>
+	
+	<bean id="remoteExamQuestionTypeDAO" class="com.hys.exam.dao.remote.jdbc.ExamQuestionTypeJDBCDAO">
+	</bean>
+	
+	<bean id="remoteExamPaperTypeDAO" class="com.hys.exam.dao.remote.jdbc.ExamPaperTypeJDBCDAO">
+	</bean>
+	
+	<bean id="remoteExamPaperDAO" class="com.hys.exam.dao.remote.jdbc.ExamPaperJDBCDAO">
+	</bean>
+	
+	<bean id="remoteExamPaperFasterTacticDAO" class="com.hys.exam.dao.remote.jdbc.ExamPaperFasterTacticJDBCDAO">
+	</bean>	
+	
+	<bean id="remoteExamExaminTypeDAO" class="com.hys.exam.dao.remote.jdbc.ExamExaminTypeJDBCDAO">
+	</bean>
+
+	<bean id="remoteExamExaminationDAO" class="com.hys.exam.dao.remote.jdbc.ExamExaminationJDBCDAO">
+	</bean>	
+	
+	<bean id="icmeOrgDAO" class="com.hys.exam.dao.remote.jdbc.IcmeOrgJDBCDAO">
+		<property name="dataSource" ref="icmeDataSource"></property>
+	</bean>	
+
+</beans>

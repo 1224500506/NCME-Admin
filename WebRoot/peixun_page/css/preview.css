@@ -1,0 +1,66 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: middle;
+	text-decoration:none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {list-style:none;
+	
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+
+elect, input, img, select {
+    vertical-align: middle;
+}
+/* my */
+.per-centen{width:1080px;margin:20px auto;}
+.per-centen-h1{width:100%;height:60px;line-height:60px;font-size:22px;font-weight:600;color:#333;text-align:center;font-family:"微软雅黑"}
+.per-centen-cont h2{width:100%;line-height:30px;font-size:18px;font-weight:600;color:#5a9bd5;font-family:"微软雅黑"}
+.per-centen-cont p{width:100%;line-height:25px;font-size:14px;color:#666;text-indent:2em;font-family:"微软雅黑";font-weight:100;}
+.per-xinxi{width:100%;line-height:30px;font-size:18px;font-weight:600;color:#333;margin-top:10px;}
+.per-xinxi-ul{width:100%;}
+.per-xinxi-ul li{margin-left:2em;font-family:"微软雅黑"}
+.per-xinxi-ul li span{display:block;line-height:30px;float:left;font-size:14px;color:#666;font-family:"微软雅黑";font-weight:100;width:80px;}
+.per-xinxi-ul li p{display:block;line-height:30px;float:left;font-size:14px;color:#666;font-family:"微软雅黑";font-weight:100;}
+.color li p{color:red;}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	
+	<bean name="examWebService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+		<property name="service" ref="examWebServiceImpl"></property>
+		<property name="serviceInterface">
+		    <value>com.hys.exam.interfaces.ExamWebService</value>
+		</property>		
+	</bean>
+	
+	<bean name="examWebServiceLocal" class="org.springframework.remoting.caucho.HessianServiceExporter">
+		<property name="service" ref="examWebServiceLocalImpl"></property>
+		<property name="serviceInterface">
+		    <value>com.hys.exam.interfaces.ExamWebServiceLocal</value>
+		</property>		
+	</bean>	
+
+	<bean id="urlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/examWebService">examWebService</prop>
+				<prop key="/examWebServiceLocal">examWebServiceLocal</prop>
+			</props>
+		</property>
+	</bean>
+	
+</beans>

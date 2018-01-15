@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+	</form-beans>
+
+	<action-mappings>
+		<action path="/security/examPropValFile" type="com.hys.exam.struts.action.ExamPropValForFileAction">
+		</action>
+		<action path="/questionManage/addQuestion"
+			type="com.hys.exam.struts.action.ExamAddQuestionAction" name="examQuestionForm"  scope="request">
+			<forward name="SUCCESS" path="/questionManage/questionManage.do" redirect="true"></forward>
+			<forward name="FAILURE" path="/commons/failure.jsp"></forward>
+		</action>
+		
+		<action path="/questionManage/updateQuestion"
+			type="com.hys.exam.struts.action.ExamUpdateQuestionAction" name="examQuestionForm"  scope="request">
+			<forward name="SUCCESS" path="/questionManage/questionManage.do" redirect="true"></forward>
+			<forward name="SUCCESS3" path="/questionManage/adSearchQuestion.do?handle=list" redirect="true"></forward>
+			<forward name="SUCCESS2" path="/questionManage/SearchNotPropQuestion.do" redirect="true"></forward>
+		</action>
+		
+		<action path="/welcome" type="com.hys.auth.struts.action.LoginAction">
+			<forward name="success" path="/new_page/index.jsp" />
+		</action>
+
+		<action path="/editPwd" scope="request" type="com.hys.auth.struts.action.ProcessEditPasswordAction">
+			<forward name="input" path="/new_page/editPass.jsp" />
+			<forward name="success" path="/new_page/index.jsp" />
+		</action>
+
+		<action path="/userManage/findUsers" scope="request" type="com.hys.auth.struts.action.ProcessFindUsersAction">
+			<forward name="success" path="/page/userManage/auth_PrivilegeResult.jsp" />
+		</action>
+
+		<action path="/userManage/preFindUsers" scope="request" type="com.hys.auth.struts.action.PrepareFindUsersAction">
+			<forward name="success" path="/page/userManage/auth_PrivilegeManagement.jsp" />
+		</action>
+		
+		<action path="/userManage/preSaveUser" scope="request" type="com.hys.auth.struts.action.PrepareSaveUserAction">
+			<forward name="success" path="/page/userManage/auth_AddUser.jsp" />
+		</action>
+
+		<action path="/userManage/getUsers" scope="request" type="com.hys.auth.struts.action.UserManageGetUsersAction">
+			<forward name="success" path="/new_page/systemUser/auth_FindUserResult.jsp" />
+		</action>
+
+		<action path="/userManage/addUsers" scope="request" type="com.hys.auth.struts.action.UserManageAddUserAction">
+			<forward name="success" path="/userManage/getUsers.do?method=list" />
+		</action>
+
+		<action path="/userManage/preUpdateUser" scope="request" type="com.hys.auth.struts.action.UserManagePrepareUpdateUserAction">
+			<forward name="success" path="/page/userManage/auth_UpdateUser.jsp" />
+		</action>
+
+		<action path="/userManage/updateUser" scope="request" type="com.hys.auth.struts.action.UserManageUpdateUserAction">
+			<forward name="success" path="/userManage/getUsers.do?method=list" />
+		</action>
+
+		<action path="/userManage/deleteUser" scope="request" type="com.hys.auth.struts.action.UserManageDeleteUserAction">
+			<forward name="SUCCESS" path="/userManage/getUsers.do?method=list" />
+		</action>
+		
+		<action path="/userManage/updateRole" scope="request" type="com.hys.auth.struts.action.ProcessUpdatePrivilegeAction" />
+		
+		<action path="/security/saveRole" scope="request" type="com.hys.auth.struts.action.ProcessSaveRolesAction">
+			<forward name="success" path="/security/preSaveRole.do" redirect="false" />
+			<forward name="input" path="/security/preSaveRole.do" redirect="false" />
+		</action>
+		
+		<action path="/security/saveRolesData" scope="request" type="com.hys.auth.struts.action.ProcessSaveRolesDataAction">
+			<forward name="success" path="/security/preSaveRole.do" redirect="false" />
+			<forward name="input" path="/security/preSaveRole.do" redirect="false" />
+		</action>
+
+		<action path="/security/deleteRole" scope="request" type="com.hys.auth.struts.action.ProcessDeleteRoleAction">
+			<forward name="success" path="/security/preSaveRole.do" redirect="false" />
+			<forward name="input" path="/security/preSaveRole.do" redirect="true" />
+		</action>
+
+		<action path="/security/preSaveRole" scope="request" type="com.hys.auth.struts.action.PrepareSaveRoleAction">
+			<forward name="success" path="/new_page/userManage/auth_SaveRoles.jsp" />
+		</action>
+		
+		<action path="/security/getRolesList" scope="request" type="com.hys.auth.struts.action.GetRolesDataAction">
+			
+		</action>
+		
+
+		<action path="/security/addResource" scope="request" type="com.hys.auth.springsecurity.SecurityAddResourceAction" />
+
+		<action path="/security/findResources" scope="request" type="com.hys.auth.springsecurity.SecurityFindResourceAction">
+			<forward name="success" path="/page/userManage/auth_RoleResources.jsp" />
+		</action>
+
+		<action path="/security/relate" scope="request" type="com.hys.auth.springsecurity.SecurityRoleResourceAction" />
+
+		<action path="/security/getRoles" scope="request" type="com.hys.auth.springsecurity.SecurityGetRolesAction" />
+
+		<action path="/security/getResource" scope="request" type="com.hys.auth.springsecurity.SecurityGetResourceAction" />
+
+		<action path="/security/updateResource" scope="request" type="com.hys.auth.springsecurity.SecurityUpdateResourceAction" />
+
+		<action path="/security/deleteResource" scope="request" type="com.hys.auth.springsecurity.SecurityDeleteResourceAction" />
+
+		<action path="/logout" type="com.hys.auth.struts.action.LogoutAction">
+		</action>
+		<action path="/userManage/getUserRoles" scope="request" type="com.hys.auth.struts.action.UserGetRoles">
+		</action>
+		
+	</action-mappings>
+
+</struts-config>
+

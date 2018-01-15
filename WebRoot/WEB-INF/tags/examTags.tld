@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<description>考试系统</description>
+	<tlib-version>1.0</tlib-version>
+	<short-name>ExamTags</short-name>
+	<uri>/ExamTags</uri>
+	
+	<function>
+		<description>判断输出题型信息</description>
+		<name>questTypeName</name>
+		<function-class>com.hys.exam.common.util.ExamTag</function-class>
+		<function-signature>java.lang.String getQuestTypes(java.lang.Integer)</function-signature>
+	</function>
+
+	<function>
+		<description>判断输出PageMode</description>
+		<name>pageMode</name>
+		<function-class>com.hys.exam.common.util.ExamTag</function-class>
+		<function-signature>java.lang.String getPageMode(java.lang.Integer)</function-signature>
+	</function>
+	
+</taglib>

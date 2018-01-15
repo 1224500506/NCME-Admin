@@ -1,0 +1,329 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@include file="/commons/taglibs.jsp"%>
+<script type="text/javascript" src="${ctx}/js/My97Date/WdatePicker.js"></script>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="http://101.200.85.213:8090/admin/new_page/css/reset.css" />
+	<link rel="stylesheet" href="http://101.200.85.213:8090/admin/new_page/css/index.css" />
+	<script type="text/javascript" src="http://101.200.85.213:8090/admin/new_page/js/jquery.js"></script>
+	 <script src="http://101.200.85.213:8090/admin/js/jquery-1.11.1.min.js"></script>
+	 <script src="http://101.200.85.213:8090/admin/js/jquery.mobile.custom.min.js"></script>
+	 <script src="http://101.200.85.213:8090/admin/js/jquery.bxslider.js"></script>
+	 <script src="http://101.200.85.213:8090/admin/js/iconfont.js"></script>
+	 <script src="http://101.200.85.213:8090/admin/js/main.min.js"></script>
+	 <link href="http://101.200.85.213:8090/admin/css/animate.min.css" rel="stylesheet">
+	 <link href="http://101.200.85.213:8090/admin/css/jquery.bxslider.css" rel="stylesheet">
+	 <link href="http://101.200.85.213:8090/admin/css/global.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="content no_padding" style="width:90%;margin-top:100px;">
+        <div class="tabs">
+            <ul class="tab_list">
+                <li id="tab1" class="tab active">基本信息</li>
+                <li id="tab2" class="tab">病例信息</li>
+            </ul>
+            <div class="tab1 tab_cont">
+                <div class="half_cont">
+                    <ul>
+                        <li>学科：${courseStr}</li>
+                        <li style="margin-top:5px;">主题：</li>
+                        <li style="margin-top:5px;">患者姓名：${caseData.patientObject.PName}</li>
+                        <li style="margin-top:5px;">患者出生日期：${caseData.patientObject.birthday}</li>
+                        <li style="margin-top:5px;">患者身份证号：</li>
+                        <li style="margin-top:5px;">编号类型1：</li>
+                        <li style="margin-top:5px;">手机号：${caseData.patientObject.phoneNumber1}</li>
+                    </ul>
+                </div>
+                <div class="half_cont">
+                    <ul>
+                        <li>ICD10：${ICD}</li>
+                        <li style="margin-top:5px;">就诊日期：${caseData.patientObject.diagDate}</li>
+                        <li style="margin-top:5px;">性别：
+                          <c:if test="${caseData.patientObject.sex == 0}">男</c:if>
+						  <c:if test="${caseData.patientObject.sex == 1}">女</c:if>
+                        </li>
+                        <li style="margin-top:5px;">年龄：${caseData.patientObject.pAge}</li>
+                        <li style="margin-top:5px;">国家库：</li>
+                        <li style="margin-top:5px;">编号类型2：</li>
+                        <li style="margin-top:5px;">固定电话：${caseData.patientObject.phoneNumber2}</li>
+                    </ul>
+                </div>
+                <p class="desc">诊断：${caseData.patientDiagnosisObject}</p>
+            </div>
+            <div class="tab2 tab_cont" style="display:none">
+                <table class="main_table">
+                    <tbody style="border-top:1px solid #ccc">
+                        <tr>
+                            <td>主诉</td>
+                            <td>${caseData.caseDiseaseObject.complaint}</td>
+                        </tr>
+                        <tr>
+                            <td>现病史</td>
+                            <td>${caseData.caseDiseaseObject.currentDisease}</td>
+                        </tr>
+                        <tr>
+                            <td>个人史</td>
+                            <td>
+                                <ul>
+                                    <li>既往史：${caseData.caseDiseaseObject.history1}</li>
+                                    <li>个人史：${caseData.caseDiseaseObject.history2}</li>
+                                    <li>过敏史：${caseData.caseDiseaseObject.history3}</li>
+                                    <li>家族史：${caseData.caseDiseaseObject.history4}</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>体征</td>
+                            <td>
+                                <ul>
+                                    <li>神经系统：
+                                      <c:if test="${caseData.caseDiseaseObject.bodyState1Type == 0}">正常</c:if>
+									  <c:if test="${caseData.caseDiseaseObject.bodyState1Type == 1}">异样</c:if>
+                                    </li>
+                                    <li>头部：
+                                      <c:if test="${caseData.caseDiseaseObject.bodyState2Type == 0}">正常</c:if>
+									  <c:if test="${caseData.caseDiseaseObject.bodyState2Type == 1}">异样</c:if>
+                                    </li>
+                                    <li>颈部：
+                                      <c:if test="${caseData.caseDiseaseObject.bodyState3Type == 0}">正常</c:if>
+									  <c:if test="${caseData.caseDiseaseObject.bodyState3Type == 1}">异样</c:if>
+                                    </li>
+                                    <li>胸部：
+                                      <c:if test="${caseData.caseDiseaseObject.bodyState4Type == 0}">正常</c:if>
+									  <c:if test="${caseData.caseDiseaseObject.bodyState4Type == 1}">异样</c:if>
+                                    </li>
+                                    <li>腹部：
+                                      <c:if test="${caseData.caseDiseaseObject.bodyState5Type == 0}">正常</c:if>
+									  <c:if test="${caseData.caseDiseaseObject.bodyState5Type == 1}">异样</c:if>
+                                    </li>
+                                    <li>四肢：
+                                      <c:if test="${caseData.caseDiseaseObject.bodyState6Type == 0}">正常</c:if>
+									  <c:if test="${caseData.caseDiseaseObject.bodyState6Type == 1}">异样</c:if>
+                                    </li>
+                                    <li>皮肤：
+                                      <c:if test="${caseData.caseDiseaseObject.bodyState7Type == 0}">正常</c:if>
+									  <c:if test="${caseData.caseDiseaseObject.bodyState7Type == 1}">异样</c:if>
+                                    </li>
+                                    <li>淋巴：
+                                      <c:if test="${caseData.caseDiseaseObject.bodyState8Type == 0}">正常</c:if>
+									  <c:if test="${caseData.caseDiseaseObject.bodyState8Type == 1}">异样</c:if>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>辅助检查</td>
+                            <td>
+                                <ul>
+                                    <li>化验：${caseData.caseDiseaseObject.assay}</li>
+                                    <li>影像学：${caseData.caseDiseaseObject.image}</li>
+                                    <li>其他：${caseData.caseDiseaseObject.rest}</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>诊断</td>
+                            <td>${caseData.diseaseDiagnosisObject}</td>
+                        </tr>
+                        <tr>
+                            <td>治疗方案</td>
+                            <td>${caseData.caseDiseaseObject.plan}</td>
+                        </tr>
+                        <tr>
+                            <td>预后</td>
+                            <td>${caseData.caseDiseaseObject.futureState}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="comment_top">
+                <h1 class="main_title_2">
+                    <span class="go_comment" style="cursor:pointer"><i class="fa fa-edit"></i> 去讨论 </span>
+                    讨论点
+                </h1>
+            </div>
+            
+            <div class="comment_form" style="display:none">
+                <p class="fl ml20">
+					<select class="fl" id ="discussId" onchange="selectDiscuss(this);" style="width:150px;height:25px;border:1px solid #dddddd;margin-bottom:10px;margin-left:-20px;">
+						 <option value="">选择讨论点</option>
+		                 <c:forEach items="${caseData.caseCourseDiscussList}" var="list">
+		                     <option value="${list.id}">${list.prop}</option>
+		                 </c:forEach>
+					</select>
+				</p>
+                <textarea name="comment_cont" class="comment_cont"></textarea>
+                <div class="foot" style="margin-top:10px;">
+                    <button name="comment_submit" id="comment_submit" type="button" class="btn btn_orange btn_small">评论</button>
+                    <span class="text_count">还能输入<span class="num_count">200</span>字</span>
+                </div>
+            </div>
+            
+            <!-- 循环遍历讨论信息 -->
+            <c:forEach items="${caseData.caseCourseDiscussList}" var="list">
+              <div id="taolun" class="news_cont clearfix" style="width:90%">
+                <div class="top_cont">
+                    <h1>${list.prop}</h1>
+                    <h3>
+                        <span>2016-12-20 14：30</span>
+                        <span>齐虹教授</span>
+                    </h3>
+                </div>
+                <ul class="comments_list">
+                    <!-- 循环遍历讨论点对应的评论信息 -->
+                    <c:forEach items="${list.discussList}" var="discussList">
+                       <li>
+		                    <span class="avatar tiny"><img src="${ctx}/qiantai_page/img/userlogo.jpg"></span>
+		                    <p class="cont">${discussList.discussContent}</p>
+		                    <p>
+		                        <span class="float_right">
+		                            <i class="fa fa-thumbs-o-up"></i>
+		                            <i class="fa fa-reply"></i>
+		                        </span>
+		                        <span class="name">${discussList.systemUserName}</span>
+		                        <span class="datetime">${discussList.discussDate}</span>
+		                    </p>
+	                   </li>
+                    </c:forEach>
+                 </ul>
+              </div>
+            </c:forEach>
+            
+            <!--<div class="news_cont clearfix" style="width:90%">
+                <div class="top_cont">
+                    <h1>临床实验中，您认为有哪些措施能够更好的预防或处理白内障手术并发症？</h1>
+                    <h3>
+                        <span>2016-12-20 14：30</span>
+                        <span>齐虹教授</span>
+                    </h3>
+                </div> 
+                <ul class="comments_list">
+                <li>
+                    <span class="avatar tiny"><img src="img/user_avatar.jpg"></span>
+                    <p class="cont">年龄相关性白内障又称老年性白内障，是在中老年开始发生的晶体混浊，随着年龄增加，其患病率和发病率均明显增高</p>
+                    <p>
+                        <span class="float_right">
+                            <i class="fa fa-thumbs-o-up"></i>
+                            <i class="fa fa-reply"></i>
+                        </span>
+                        <span class="name">李先生</span>
+                        <span class="datetime">2016-11-20</span>
+                    </p>
+                </li>
+                <li>
+                    <span class="avatar tiny"><img src="img/user_avatar_f.jpg"></span>
+                    <p class="cont">年龄相关性白内障又称老年性白内障，是在中老年开始发生的晶体混浊，随着年龄增加，其患病率和发病率均明显增高</p>
+                    <p>
+                        <span class="float_right">
+                            <i class="fa fa-thumbs-o-up"></i>
+                            <i class="fa fa-reply"></i>
+                        </span>
+                        <span class="name">李女士</span>
+                        <span class="datetime">2016-11-20</span>
+                    </p>
+                </li>
+             </ul>
+           </div>-->
+           
+        </div>
+    </div>
+</div>
+<script>
+
+    //讨论点
+    var discussId ='';
+
+    $(function () {
+        $(".go_comment").click(function(){
+            $(".comment_starts,.comment_form").show();
+        });
+        
+        //计算评论字数
+        $('.comment_form .comment_cont').on("keyup",function(){
+            var txtLeng = $('.comment_form .comment_cont').val().length;      //把输入字符的长度赋给txtLeng
+            //拿输入的值做判断
+            if( txtLeng>200 ){
+                //输入长度大于200时span显示0
+                $('.comment_form .num_count').text(' 0 ');
+                //截取输入内容的前300个字符，赋给fontsize
+                var fontsize = $('.comment_form .comment_cont').val().substring(0,200);
+                //显示到textarea上
+                $('.comment_form .comment_cont').val( fontsize );
+            }else{
+                //输入长度小于300时span显示300减去长度
+                $('.comment_form .num_count').text(200-txtLeng);
+            }
+        });
+        
+        /*
+         * @author 张建国
+         * @time   2017-02-20
+         * 说      明：提交评论
+         */
+        $("#comment_submit").click(function(){
+        	var content = $(".comment_cont").val();
+        	if(content==null || content==''){
+        		alert("请输入评论内容.");
+        		return;
+        	}
+        	if(discussId==null || discussId==''){
+        		alert("请选择讨论点.");
+        		return;
+        	}
+        	//获取父级页面变量信息
+        	var cvsetId = window.parent.projectId;
+        	
+        	var unitId = window.parent.unitId;
+        	
+        	var url = window.parent.adminURL;
+        	
+        	var userId = window.parent.userId;
+        	
+        	//通过AJAX保存评论的信息
+        	$.ajax({
+        		url:url+"/caseManage/caseSaveDiscuss.do",
+     		    type: 'POST',
+     		    dataType: 'json',
+     		    data:{
+     		    	cvsetId:cvsetId,
+     		    	unitId:unitId,
+     		    	content:content,
+     		    	discussId:discussId,
+     		    	caseId:'${caseId}',
+     		    	userId:userId
+     		    },
+     		   success: function(data){   
+     		    	var result = eval(data);
+     		    	if(result.message=='success'){
+     		    		//重置信息
+     		    		$(".comment_cont").val('');
+     		    		//$("#discussId").val('');
+     		    		//本页刷新
+     		    		//location.reload();
+     		    		//div局部刷新---by scp
+     		    		$("#taolun").load(location.href+" #taolun"); 
+     		    	}
+     		    }
+      		});;
+        });
+    });
+    
+    /*
+     * @author 张建国
+     * @time   2017-02-20
+     * 说       明：选择讨论点
+     */
+    function selectDiscuss(obj){
+    	var id = $(obj).val();
+    	if(id!=null && id!=''){
+    		discussId = id;
+    	}
+    }
+        
+</script>
+</body>

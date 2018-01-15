@@ -1,0 +1,126 @@
+/* reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	text-decoration:none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {list-style:none;
+	
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+elect, input, img, select {
+    vertical-align: middle;
+}
+
+/* my-css */
+*{margin:0;padding:0;font-family:"微软雅黑"!important;}
+body{font-family:"微软雅黑";font-size:12px;color:#333;letter-spacing:1px;}
+content,header,footer,section{display:block;}
+input{outline:none} 
+input[type="button"], input[type="submit"], input[type="reset"] {
+-webkit-appearance: none;
+}
+input,button{ margin:0; padding:0; list-style-type:none;}
+textarea {-webkit-appearance: none;} 
+textarea{-webkit-appearance:none;font-family:"Microsoft Yahei",helvetica,arial,sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:4px 8px;background: #fff;border:1px solid #cfcfcf;box-shadow:inset 0 1 px 0 #CDCDCD;outline: 0;font-size:14px;color:#444;display:block;} 
+
+/* 浮动 */
+.clear{ zoom:1;clear:both;}
+.clear:after{content:"";clear:both;height:0;line-height:0;display:block;visibility:hidden;}
+.fl{float:left;display:inline;}
+.fr{float:right;display:inline;}
+/* 间距 */
+.mt5{margin-top:5px;}
+.mt10{margin-top:10px;}
+.mt15{margin-top:15px;}
+.mt20{margin-top:20px;}
+.mt25{margin-top:25px;}
+.mt30{margin-top:30px;}
+
+.ml5{margin-left:5px;}
+.ml10{margin-left:10px;}
+.ml15{margin-left:15px;}
+.ml20{margin-left:20px;}
+.ml30{margin-left:30px;}   
+.mll8{margin-left:70px;}
+
+.mr20{margin-right:20px;}  
+
+/* 登录 */
+.ld_center{width:500px;height:500px;margin-left:-250px;position:absolute;left:50%;}
+.ld_img{width:248px;margin:30px 0px 30px 126px;}
+.ld_denglukuang{width:500px;height:340px;background:url('../images/tp1.png');background-size:100% 100%;}
+.ld_denglukuang p{width:380px;height:50px;border:1px solid #dddddd;background:#fff;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;-khtml-border-radius:3px;margin-left:60px;}
+.ld_denglukuang p .span{width:24px;height:25px;background:url('../images/bjt18.png');background-size:100% 100%;display:block;margin-left:15px;margin-top:13px;}
+.ld_denglukuang p .span1{width:24px;height:25px;background:url('../images/bjt17.png');background-size:100% 100%;display:block;margin-left:15px;margin-top:13px;}
+.ld_denglukuang p  input{width:320px;height:30px;margin-top:8px;margin-left:15px;border:none;}
+.ld_denglukuang a{width:380px;height:50px;border:1px solid #0968c7;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;-khtml-border-radius:3px;margin-left:60px;background:#0968c7;color:#fff;font-size:16px;font-weight:600;display:block;text-align:center;line-height:50px;}
+/* 二级 */
+.header{width:100%;height:55px;background:#075387}
+.tk_er{width:100%;height:30px;line-height:27px;border-bottom:1px solid #dddddd;background:#fff;}
+.tk_float a{margin-left:20px;font-size:12px;color:#333;font-weight:500;}
+.tk_float a.action{color:#0992E8;}
+.tk_float a:hover{color:#0992E8;}
+.mar_left01{margin-left:15%;}
+.mar_left02{margin-left:21.6%;}
+.mar_left03{margin-left:28%;}
+.mar_left04{margin-left:34%;}
+.mar_left05{margin-left:40.6%;}
+.mar_left06{margin-left:47%;}
+.mar_left07{margin-left:6.5%;}
+@media screen and (max-width:1680px){
+
+}
+@media screen and (max-width:1440px){
+
+.mar_left07{margin-left:7%;}
+}
+@media screen and (max-width:1366px){
+
+.mar_left07{margin-left:7.5%;}
+}
+
+
+
+

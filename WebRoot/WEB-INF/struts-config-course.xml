@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<data-sources />
+	<form-beans>
+		<form-bean name="importCoursewareForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="uploadfile" type="org.apache.struts.upload.FormFile">
+			</form-property>
+			<form-property name="updatefile" type="org.apache.struts.upload.FormFile">
+			</form-property>
+		</form-bean>
+	</form-beans>
+
+	<action-mappings>
+		<action path="/course/coursewareList" type="com.hys.exam.struts.action.course.CoursewareListAction"
+			scope="request">
+			<forward name="SUCCESS" path="/page/course/coursewareList.jsp"></forward>
+		</action>
+
+		<action path="/course/coursewareSave" type="com.hys.exam.struts.action.course.CoursewareSaveAction"
+			scope="request">
+			<forward name="SUCCESS" path="/course/coursewareList.do" redirect="true"></forward>
+		</action>
+
+		<action path="/course/coursewareAdd" type="com.hys.exam.struts.action.course.CoursewareAddAction"
+			scope="request">
+			<forward name="SUCCESS" path="/page/course/coursewareSave.jsp"></forward>
+		</action>
+		
+		<action path="/course/importCourseware"
+			type="com.hys.exam.struts.action.course.CoursewareImportAction" name="importCoursewareForm" scope="request">
+			<forward name="SUCCESS" path="/page/course/coursewareImport.jsp"></forward>
+			<forward name="FAILURE" path="/page/course/coursewareImport.jsp"></forward>
+		</action>
+
+		<action path="/course/coursewareView" type="com.hys.exam.struts.action.course.CoursewareViewAction"
+			scope="request">
+			<forward name="SUCCESS" path="/page/course/coursewareView.jsp"></forward>
+		</action>
+
+		<action path="/course/coursewareUpdate" type="com.hys.exam.struts.action.course.CoursewareUpdateAction"
+			scope="request">
+			<forward name="SUCCESS" path="/page/course/coursewareSave.jsp"></forward>
+		</action>
+
+		<action path="/course/coursewarePreview" type="com.hys.exam.struts.action.course.CoursewarePreviewAction"
+			scope="request">
+			<forward name="SUCCESS" path="/page/course/coursewarePreview.jsp"></forward>
+		</action>
+
+		<action path="/course/coursewareDelete" type="com.hys.exam.struts.action.course.CoursewareDeleteAction"
+			scope="request">
+			<forward name="SUCCESS" path="/course/coursewareList.do"></forward>
+		</action>
+
+		<action path="/course/studyCourseTypeIndex"
+				type="com.hys.exam.struts.action.course.StudyCourseTypeIndexAction"
+				scope="request">
+			<forward name="SUCCESS" path="/page/course/studyCourseTypeIndex.jsp"></forward>
+		</action>
+		<action path="/course/studyCourseTypeList"
+				type="com.hys.exam.struts.action.course.StudyCourseTypeListAction"
+				scope="request">
+			<forward name="SUCCESS" path="/page/course/studyCourseTypeList.jsp"></forward>
+		</action>
+		<action path="/course/studyCourseTypeAdd"
+				type="com.hys.exam.struts.action.course.StudyCourseTypeAddAction"
+				scope="request">
+			<forward name="SUCCESS" path="/page/course/studyCourseTypeSave.jsp"></forward>
+			<forward name="selectCourseType" path="/page/ncme/selectCourseType.jsp"></forward>
+		</action>
+		<action path="/course/studyCourseTypeSave"
+				type="com.hys.exam.struts.action.course.StudyCourseTypeSaveAction"
+				scope="request">
+			<forward name="SUCCESS" path="/course/studyCourseTypeList.do"></forward>
+		</action>		
+		<action path="/course/studyCourseTypeMove"
+				type="com.hys.exam.struts.action.course.StudyCourseTypeMoveAction"
+				scope="request">
+			<forward name="SUCCESS" path="/course/studyCourseTypeList.do"></forward>
+		</action>		
+		<action path="/course/studyCourseTypeView"
+				type="com.hys.exam.struts.action.course.StudyCourseTypeViewAction"
+				scope="request">
+			<forward name="SUCCESS" path="/page/course/studyCourseTypeView.jsp"></forward>
+		</action>
+		<action path="/course/studyCourseTypeUpdate"
+				type="com.hys.exam.struts.action.course.StudyCourseTypeUpdateAction"
+				scope="request">
+			<forward name="SUCCESS" path="/page/course/studyCourseTypeSave.jsp"></forward>
+		</action>
+		<action path="/course/studyCourseTypeDelete"
+				type="com.hys.exam.struts.action.course.StudyCourseTypeDeleteAction"
+				scope="request">
+			<forward name="SUCCESS" path="/course/studyCourseTypeList.do"></forward>
+		</action>
+		<action path="/course/studyCourseTypeCourseList"
+				type="com.hys.exam.struts.action.course.StudyCourseTypeCourseListAction"
+				scope="request">
+			<forward name="SUCCESS" path="/page/course/studyCourseTypeCourseList.jsp"></forward>
+		</action>
+		<action path="/course/studyCourseTypeCourseSave"
+				type="com.hys.exam.struts.action.course.StudyCourseTypeCourseSaveAction"
+				scope="request">
+			<forward name="SUCCESS" path="/course/studyCourseTypeCourseList.do"></forward>
+		</action>
+		<action path="/course/studyCourseTypeIsFree"
+				type="com.hys.exam.struts.action.course.StudyCourseTypeIsFreeAction"
+				scope="request"
+		>
+		</action>
+
+		<action path="/ncme/ncmeCourseAuthorizeList"
+				type="com.hys.exam.struts.action.ncme.NcmeCourseAuthorizeListAction"
+				scope="request"
+		>
+		  <forward name="SUCCESS" path="/page/ncme/ncmeCourseAuthorizeList.jsp"></forward>
+		</action>
+		
+		<action path="/ncme/ncmeCourseSetting"
+				type="com.hys.exam.struts.action.ncme.NcmeCourseSettingAction" scope="request">
+				<forward name="edit" path="/page/ncme/studyCourseSetting.jsp"></forward>
+		</action>
+		
+		<action path="/ncme/ncmeCourseAuthorizeUpdate" 
+				type="com.hys.exam.struts.action.ncme.NcmeCourseAuthorizeUpdateAction"
+				scope="request">
+			<forward name="toUpdate" path="/page/ncme/ncmeCourseAuthorizeUpdate.jsp" />
+			<forward name="SUCCESS" path="/ncme/ncmeCourseAuthorizeList.do"></forward>
+		</action>
+		
+		<action path="/ncme/ncmeCourseAuthorizeAddTo"
+				type="com.hys.exam.struts.action.ncme.NcmeCourseAuthorizeAddToAction"
+				scope="request"
+		>
+		  <forward name="SUCCESS" path="/page/ncme/ncmeCourseAuthorizeAdd.jsp"></forward>
+		</action>
+		
+		<action path="/ncme/ncmeStudyCourseView"
+				type="com.hys.exam.struts.action.ncme.NcmeStudyCourseViewAction"
+				scope="request"
+				name="courseForm"
+		>
+		  <forward name="SUCCESS" path="/page/ncme/ncmeStudyCourseView.jsp"></forward>
+		</action>
+		<action path="/ncme/ncmeCourseAuthorizeSave"
+				type="com.hys.exam.struts.action.ncme.NcmeCourseAuthorizeSaveAction"
+				scope="request"
+		>
+		  <forward name="SUCCESS" path="/ncme/ncmeCourseAuthorizeList.do"></forward>
+		</action>
+		<action path="/ncme/ncmeCourseAuthorizeDelete"
+				type="com.hys.exam.struts.action.ncme.NcmeCourseAuthorizeDeleteAction"
+				scope="request"
+		>
+		  <forward name="SUCCESS" path="/ncme/ncmeCourseAuthorizeList.do"></forward>
+		</action>		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<action path="/course/studyCourseView"
+				type="com.hys.exam.struts.action.course.StudyCourseViewAction"
+				scope="request"
+				name="courseForm"
+		>
+			<forward name="SUCCESS" path="/page/course/studyCourseView.jsp"></forward>
+			<forward name="viewCreditCourse" path="/page/course/studyCreditCourseList.jsp"></forward>
+		</action>
+
+		<action path="/course/studyCourseAddTo"
+				type="com.hys.exam.struts.action.course.StudyCourseAddToAction"
+				scope="request"
+		>
+			<forward name="SUCCESS" path="/page/course/studyCourseAdd.jsp"></forward>
+		</action>
+
+		<action path="/course/studyCourseAdd"
+				type="com.hys.exam.struts.action.course.StudyCourseAddAction"
+				scope="request"
+				name="courseForm"
+		>
+		</action>
+
+		<action path="/course/studyCourseDetail"
+				type="com.hys.exam.struts.action.course.StudyCourseDetailAction"
+				scope="request"
+		>
+			<forward name="SUCCESS" path="/page/course/studyCourseEdit.jsp"></forward>
+		</action>
+
+		<action path="/course/studyCourseEdit"
+				type="com.hys.exam.struts.action.course.StudyCourseEditAction"
+				scope="request"
+				name="courseForm"
+		>
+		</action>
+
+		<action path="/course/studyCourseDel"
+				type="com.hys.exam.struts.action.course.StudyCourseDelAction"
+				scope="request"
+		>
+		</action>
+
+		<action path="/course/studyCourseMenu"
+				type="com.hys.exam.struts.action.course.StudyCourseMenuAction"
+				scope="request"
+		>
+		</action>
+
+		<action path="/course/studyCurWareView"
+				type="com.hys.exam.struts.action.course.StudyCurWareViewAction"
+				scope="request"
+		>
+			<forward name="SUCCESS" path="/page/course/studyCurWareView.jsp"></forward>
+		</action>
+
+		<action path="/course/studyCurWareMove"
+				type="com.hys.exam.struts.action.course.StudyCurWareMoveAction"
+				scope="request"
+		>
+		</action>
+
+		<action path="/course/studyCurWareDel"
+				type="com.hys.exam.struts.action.course.StudyCurWareDelAction"
+				scope="request"
+		>
+		</action>
+
+		<action path="/course/studyCurWareList"
+				type="com.hys.exam.struts.action.course.StudyCurWareListAction"
+				scope="request"
+		>
+			<forward name="SUCCESS" path="/page/course/studyCurWareList.jsp"></forward>
+		</action>
+		
+		<action path="/course/studyCurWareAdd"
+				type="com.hys.exam.struts.action.course.StudyCurWareAddAction"
+				scope="request"
+				name="courseForm"
+		>
+			<forward name="SUCCESS" path="/page/course/studyViewSuccess.jsp"></forward>
+		</action>
+
+		<action path="/course/studyExamQuestion"
+				type="com.hys.exam.struts.action.course.StudyExamQuestionAction"
+				scope="request"
+				name="paperForm"
+		>
+			<forward name="SUCCESS" path="/page/course/studyExamQuestion.jsp"></forward>
+		</action>
+
+		<action path="/course/studyExamQuesView"
+				type="com.hys.exam.struts.action.course.StudyExamQuesViewAction"
+				scope="request"
+				name="examQuestionForm"
+		>
+			<forward name="VIEW_A"  path="/page/course/studyExamQuesViewA.jsp" />
+			<forward name="VIEW_B"  path="/page/course/studyExamQuesViewB.jsp" />
+			<forward name="VIEW_C"  path="/page/course/studyExamQuesViewC.jsp" />
+			<forward name="VIEW_D"  path="/page/course/studyExamQuesViewD.jsp" />
+			<forward name="VIEW_B1" path="/page/course/studyExamQuesViewB1.jsp" />
+			<forward name="VIEW_A3" path="/page/course/studyExamQuesViewA3.jsp" />
+		</action>
+
+		<action path="/course/studyExamQuesAdd"
+				type="com.hys.exam.struts.action.course.StudyExamQuesAddAction"
+				scope="request"
+				name="courseForm"
+		>
+			<forward name="SUCCESS" path="/page/course/studyViewSuccess.jsp" />
+		</action>
+
+		<action path="/course/studyCurWarePreview"
+				type="com.hys.exam.struts.action.course.StudyCurWarePreviewAction"
+				scope="request"
+		>
+			<forward name="SUCCESS"   path="/page/course/studyViewVideo.jsp" />
+			<forward name="SUCCESS_1" path="/page/course/studyViewQuestion.jsp" />
+		</action>
+
+		<action path="/course/studyCoursePreview"
+				type="com.hys.exam.struts.action.course.StudyCoursePreviewAction"
+				scope="request"
+		>
+			<forward name="SUCCESS"   path="/page/course/courseEleView.jsp" />
+			<forward name="SUCCESS_1" path="/page/course/courseEleView_1.jsp" />
+			<forward name="SUCCESS_2" path="/page/course/courseEleError.jsp" />
+		</action>
+		
+		<action path="/course/curIndex"
+				forward="/page/course/studyCourseIndex.jsp"
+				scope="request">
+		</action>
+		
+		<action path="/course/studyPaperIndex"
+				scope="request"
+				forward="/page/course/studyPaperIndex.jsp"
+		>
+		</action>		
+		
+	</action-mappings>
+</struts-config>
+

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-init-method="true" default-autowire="byName">
+	
+	<!-- systemClient -->
+	<bean id="systemClientDAO" class="com.hys.exam.dao.local.jdbc.SystemClientJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="systemClientManage" class="com.hys.exam.service.local.impl.SystemClientManageImpl">
+		<property name="systemClientDAO" ref="systemClientDAO"/>
+	</bean>
+	<bean id="systemClientFacade" class="com.hys.exam.sessionfacade.local.impl.SystemClientFacadeImpl">
+		<property name="systemClientManage" ref="systemClientManage"/>
+	</bean>
+	
+	
+	<!-- systemOrg -->
+	<bean id="systemOrgDAO" class="com.hys.exam.dao.local.jdbc.SystemOrgJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="systemOrgManage" class="com.hys.exam.service.local.impl.SystemOrgManageImpl">
+		<property name="systemOrgDAO" ref="systemOrgDAO"/>
+	</bean>
+	<bean id="systemOrgFacade" class="com.hys.exam.sessionfacade.local.impl.SystemOrgFacadeImpl">
+		<property name="systemOrgManage" ref="systemOrgManage"/>
+	</bean>
+	
+	<!-- systemRole -->
+	<bean id="systemRoleDAO" class="com.hys.exam.dao.local.jdbc.SystemRoleJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="systemRoleManage" class="com.hys.exam.service.local.impl.SystemRoleManageImpl">
+		<property name="systemRoleDAO" ref="systemRoleDAO"/>
+	</bean>
+	<bean id="systemRoleFacade" class="com.hys.exam.sessionfacade.local.impl.SystemRoleFacadeImpl">
+		<property name="systemRoleManage" ref="systemRoleManage"/>
+	</bean>
+	
+	<!-- systemApplication -->
+	<bean id="systemApplicationDAO" class="com.hys.exam.dao.local.jdbc.SystemApplicationJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="systemApplicationManage" class="com.hys.exam.service.local.impl.SystemApplicationManageImpl">
+		<property name="systemApplicationDAO" ref="systemApplicationDAO"/>
+	</bean>
+	<bean id="systemApplicationFacade" class="com.hys.exam.sessionfacade.local.impl.SystemApplicationFacadeImpl">
+		<property name="systemApplicationManage" ref="systemApplicationManage"/>
+	</bean>
+	
+	<!-- systemUser -->
+	<bean id="systemUserDAO" class="com.hys.exam.dao.local.jdbc.SystemUserJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="systemUserManage" class="com.hys.exam.service.local.impl.SystemUserManageImpl">
+		<property name="systemUserDAO" ref="systemUserDAO"/>
+	</bean>
+	<bean id="systemUserFacade" class="com.hys.exam.sessionfacade.local.impl.SystemUserFacadeImpl">
+		<property name="systemUserManage" ref="systemUserManage"/>
+	</bean>
+	
+	
+	<bean id="customerServiceDAO" class="com.hys.exam.dao.local.jdbc.CustomerServiceJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="customerServiceManage" class="com.hys.exam.service.local.impl.CustomerServiceManageImpl">
+		<property name="customerServiceDAO" ref="customerServiceDAO"/>
+	</bean>
+	
+	
+	<!-- systemSiteCourseType -->
+	<bean id="systemSiteCourseTypeDAO" class="com.hys.exam.dao.local.jdbc.SystemSiteCourseTypeJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="systemSiteCourseTypeManage" class="com.hys.exam.service.local.impl.SystemSiteCourseTypeManageImpl">
+		<property name="systemSiteCourseTypeDAO" ref="systemSiteCourseTypeDAO"/>
+	</bean>
+	<bean id="systemSiteCourseTypeFacade" class="com.hys.exam.sessionfacade.local.impl.SystemSiteCourseTypeFacadeImpl">
+		<property name="systemSiteCourseTypeManage" ref="systemSiteCourseTypeManage"/>
+	</bean>
+	
+	
+	<!-- systemProp -->
+	<bean id="systemPropDAO" class="com.hys.exam.dao.local.jdbc.SystemPropJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="systemPropManage" class="com.hys.exam.service.remote.impl.SystemPropManageImpl">
+		<property name="systemPropDAO" ref="systemPropDAO"/>
+	</bean>
+	
+	<!-- systemCard -->
+	<bean id="systemCardDAO" class="com.hys.exam.dao.local.jdbc.SystemCardJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="systemCardManage" class="com.hys.exam.service.remote.impl.SystemCardManageImpl">
+		<property name="systemCardDAO" ref="systemCardDAO"/>
+	</bean>
+	
+	<!-- systemBugLog -->
+	<bean id="systemBugLogManage" class="com.hys.exam.service.local.impl.SystemBugLogManageImpl">
+		<property name="systemBugLogDAO" ref="systemBugLogDAO"/>
+	</bean>
+	<bean id="systemBugLogDAO" class="com.hys.exam.dao.local.jdbc.SystemBugLogJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	
+	
+	<!-- 课程信息 -->
+	<bean id="studyCourseDAO" class="com.hys.exam.dao.local.jdbc.StudyCourseJDBCDAO">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	
+	<bean id="studyCourseManage" class="com.hys.exam.service.local.impl.StudyCourseManageImpl"></bean>
+	
+	<bean id="studyCourseFacade" class="com.hys.exam.sessionfacade.local.impl.StudyCourseFacadeImpl"></bean>
+
+
+	
+	<!-- 新闻和栏目 -->
+	<bean id="systemCategoryNewsDAO" class="com.hys.exam.dao.remote.jdbc.SystemCategoryNewsJDBCDao">
+		<property name="jdbcTemplate" ref="examJdbcTemplate"/>
+	</bean>
+	<bean id="systemCategoryNewsManage" class="com.hys.exam.service.remote.impl.SystemCategoryNewsManageImpl">
+		<property name="systemCategoryNewsDAO" ref="systemCategoryNewsDAO"/>
+	</bean>
+</beans>

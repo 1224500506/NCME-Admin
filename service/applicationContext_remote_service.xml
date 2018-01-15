@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	
+	<bean id="remoteExamQuestionManage" class="com.hys.exam.service.remote.impl.ExamQuestionManageImpl">
+		<property name="remoteExamQuestionDAO" ref="remoteExamQuestionDAO" />
+		<property name="remoteExamQuestionKeyDAO" ref="remoteExamQuestionKeyDAO" />
+		<property name="remoteExamQuestionPropDAO" ref="remoteExamQuestionPropDAO" />
+		<property name="remoteExamQuestionPropValCascadeDAO" ref="remoteExamQuestionPropValCascadeDAO" />
+	</bean>
+	
+	<bean id="remoteExamQuestionLabelManage" class="com.hys.exam.service.remote.impl.ExamQuestionLabelManageImpl">
+		<property name="remoteExamQuestionLabelDAO" ref="remoteExamQuestionLabelDAO" />
+	</bean>
+	
+	<bean id="remoteExamPropValManage" class="com.hys.exam.service.remote.impl.ExamPropValManageImpl">
+		<property name="remoteExamPropValDAO" ref="remoteExamPropValDAO"/>
+	</bean>	
+	
+	<bean id="remoteExamQuestionTypeManage" class="com.hys.exam.service.remote.impl.ExamQuestionTypeManageImpl">
+		<property name="remoteExamQuestionTypeDAO" ref="remoteExamQuestionTypeDAO"></property>
+	</bean>
+	
+	<bean id="remoteExamExaminationManage" class="com.hys.exam.service.remote.impl.ExamExaminationManageImpl">
+		<property name="remoteExamExaminationDAO" ref="remoteExamExaminationDAO"></property>
+	</bean>
+	
+	<bean id="remoteExamExaminTypeManage" class="com.hys.exam.service.remote.impl.ExamExaminTypeManageImpl">
+		<property name="remoteExamExaminTypeDAO" ref="remoteExamExaminTypeDAO"></property>
+	</bean>	
+	
+	<bean id="remoteExamPaperManage" class="com.hys.exam.service.remote.impl.ExamPaperManageImpl">
+		<property name="remoteExamPaperDAO" ref="remoteExamPaperDAO"></property>
+		<property name="remoteExamPaperFasterTacticDAO" ref="remoteExamPaperFasterTacticDAO"></property>
+	</bean>		
+	
+	<bean id="remoteExamPaperTypeManage" class="com.hys.exam.service.remote.impl.ExamPaperTypeManageImpl">
+		<property name="remoteExamPaperTypeDAO" ref="remoteExamPaperTypeDAO"></property>
+	</bean>		
+<!-- ################################# -->
+
+	<bean id="remoteExamPropValFacade" class="com.hys.exam.sessionfacade.remote.impl.ExamPropValFacadeImpl">
+		<property name="remoteExamPropValManage" ref="remoteExamPropValManage" />
+	</bean>
+
+	<bean id="remoteExamQuestionFacade" class="com.hys.exam.sessionfacade.remote.impl.ExamQuestionFacadeImpl">
+		<property name="remoteExamQuestionManage" ref="remoteExamQuestionManage" />
+	</bean>
+
+	<bean id="remoteExamQuestionLabelFacade" class="com.hys.exam.sessionfacade.remote.impl.ExamQuestionLabelFacadeImpl">
+		<property name="remoteExamQuestionLabelManage" ref="remoteExamQuestionLabelManage" />
+	</bean>
+	
+	<bean id="remoteExamQuestionTypeFacade" class="com.hys.exam.sessionfacade.remote.impl.ExamQuestionTypeFacadeImpl">
+		<property name="remoteExamQuestionTypeManage" ref="remoteExamQuestionTypeManage"></property>
+	</bean>
+	
+	<bean id="remoteExamExaminationFacade" class="com.hys.exam.sessionfacade.remote.impl.ExamExaminationFacadeImpl">
+		<property name="remoteExamExaminationManage" ref="remoteExamExaminationManage"></property>
+	</bean>
+	
+	<bean id="remoteExamExaminTypeFacade" class="com.hys.exam.sessionfacade.remote.impl.ExamExaminTypeFacadeImpl">
+		<property name="remoteExamExaminTypeManage" ref="remoteExamExaminTypeManage"></property>
+	</bean>
+	
+	<bean id="remoteExamPaperTypeFacade" class="com.hys.exam.sessionfacade.remote.impl.ExamPaperTypeFacadeImpl">
+		<property name="remoteExamPaperTypeManage" ref="remoteExamPaperTypeManage"></property>
+	</bean>	
+	
+	<bean id="remoteExamPaperFacade" class="com.hys.exam.sessionfacade.remote.impl.ExamPaperFacadeImpl">
+		<property name="remoteExamPaperManage" ref="remoteExamPaperManage"></property>
+		<property name="remoteExamQuestionManage" ref="remoteExamQuestionManage"></property>
+	</bean>
+	
+
+	
+</beans>

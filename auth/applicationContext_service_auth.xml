@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd" default-lazy-init="true">
+
+	<!-- service -->
+
+
+	<bean id="usersManage" class="com.hys.auth.service.impl.UsersManageImpl">
+		<property name="usersDAO" ref="usersDAO" />
+	</bean>
+
+	<bean id="rolesManage" class="com.hys.auth.service.impl.RolesManageImpl">
+		<property name="rolesDAO" ref="rolesDAO" />
+	</bean>
+
+	<bean id="resourceManage" class="com.hys.auth.service.impl.ResourceManageImpl">
+		<property name="resourceDAO" ref="resourceDAO" />
+	</bean>
+
+	<!-- facade -->
+
+	<bean id="facade" class="com.hys.auth.sessionfacade.impl.AuthFacadeImpl">
+		<property name="usersManage" ref="usersManage" />
+		<property name="rolesManage" ref="rolesManage" />
+		<property name="resourceManage" ref="resourceManage" />
+	</bean>
+
+</beans>

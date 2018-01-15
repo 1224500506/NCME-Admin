@@ -1,0 +1,29 @@
+#b {
+	width:1200px;
+	padding:0 12px;
+	background:#FFF;
+	position:relative
+}
+.l {
+	width:844px;
+	float:left;
+	border-right:1px solid #DDD;
+	padding-right:10px;
+	position:relative
+}
+.m {
+	width:670px;
+	float:left;
+	border-right:1px solid #DDD;
+	padding-right:10px;
+	position:relative
+}
+.r {
+	width:336px;
+	float:right;
+	padding-bottom:200px
+}
+.topbg {
+	height:30px;
+	background:url(http://img.lanrentuku.com/img/images/a.png) repeat -20px 0
+}

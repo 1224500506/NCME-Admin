@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Admin">
+        <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/auth"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/model"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/service"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/web"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/webservice"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="Admin"/>
+        <property name="java-output-path" value="/Admin/bin"/>
+    </wb-module>
+</project-modules>

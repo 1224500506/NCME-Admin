@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* pagination */
+.pagination {
+    font-size: large;
+    text-align: center;
+    font-size: 80%;
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    margin: 12px;
+    padding-top: 12px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.pagination a {
+    font-size: large;
+    text-decoration: none;
+    border: solid 1px #AAE;
+    color: #15B;
+}
+
+.pagination a, .pagination span {
+    font-size: large;
+    display: inline-block;
+    padding: 0.3em 0.5em;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.pagination .current {
+    font-size: large;
+    background: #26B;
+    color: #fff;
+    border: solid 1px #AAE;
+}
+
+.pagination .current.prev, .pagination .current.next {
+    font-size: large;
+    color: #999;
+    border-color: #999;
+    background: #fff;
+}

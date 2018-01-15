@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+input, button {
+    border: none;
+    outline: none;
+}
+
+h1, p {
+    font-family: "Microsoft Yahei";
+    text-align: center;
+    color: #0099ff;
+}
+
+h1 {
+    padding: 20px 0;
+    font-size: 40px;
+    font-weight: 300;
+}
+
+p {
+    padding-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Paging */
+#paging {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 60px;
+    text-align: center;
+    color: #0099ff;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+#paging .first,
+#paging .last,
+#paging .prev,
+#paging .next,
+#paging .list li {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 4px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    cursor: default;
+    border-radius: 4px;
+    vertical-align: top;
+}
+
+#paging .list {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#paging .list li {
+    width: 40px;
+    padding: 0;
+    text-align: center;
+}
+
+#paging .list li.cur {
+    color: #fff;
+    background-color: #0099ff;
+    border-color: #428bca;
+}
+
+#paging .go {
+    display: none;
+    position: relative;
+    max-width: 160px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#paging .go input {
+    float: left;
+    width: 70%;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: #0099ff;
+}
+
+#paging .go button {
+    float: left;
+    width: 30%;
+    height: 100%;
+    cursor: pointer;
+    color: #fff;
+    background-color: #0099ff;
+    border-radius: 0 4px 4px 0;
+}
+
+#paging .disable {
+    color: #bfbfbf;
+    cursor: not-allowed;
+}
+
+#paging input::-webkit-input-placeholder {
+    color: #bfbfbf;
+}
+
+/*#paging input::-moz-input-placeholder {*/
+    /*color: #bfbfbf;*/
+/*}*/
+
+#paging input:-ms-input-placeholder {
+    color: #bfbfbf;
+}
+
+/* Paging Result */
+#resultBox {
+    width: 960px;
+    height: 700px;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+#resultBox dl {
+    overflow: hidden;
+    display: inline-block;
+    width: 316px;
+    padding: 35px 0;
+    vertical-align: top;
+    border-top: 1px solid #e8e8e8;
+}
+
+#resultBox dt {
+    float: left;
+    margin-right: 12px;
+}
+
+#resultBox dt a {
+    /*
+      display: block;
+      width: 100%;
+      height: 100%;*/
+}
+
+#resultBox dt a img {
+    max-width: 100px;
+    max-height: 150px;
+    vertical-align: top;
+}
+
+#resultBox dd {
+    overflow: hidden;
+    display: block;
+    padding-right: 40px;
+}
+
+#resultBox dd a {
+    display: inline-block;
+    padding: 6px 0;
+    margin-bottom: 10px;
+    line-height: 24px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #37A;
+}
+
+#resultBox dd a:hover {
+    color: #fff;
+    background-color: #37A;
+}
+
+#resultBox dd p {
+    line-height: 20px;
+    font-size: 14px;
+    color: #666;
+}

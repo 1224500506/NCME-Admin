@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="admin" default="6-All" basedir=".">
+    <property name="build" value="${basedir}/build" />
+    <property name="build.class" value="${build}/classes"/>
+    <property name="build.src" value="${build}/src"/>
+    <property name="webRoot" value="${basedir}/WebRoot"/>
+    <property name="lib" value="${webRoot}/WEB-INF/lib"/>
+    <!--定义CLASSPACH,编译时用到你外部加入的包-->
+    <path id="classpath">
+        <pathelement location="${build.src}" />
+        <fileset dir="${lib}" includes="***.jar" />
+    </path>
+    <!--请将下面的路径改为你本地的路径-->
+    <!--<property name="webserver" value="/home/richard/Desktop/"/>-->
+    <property name="webserver" value="/opt/apache-tomcat-8.5.20/webapps"/>
+
+    <!--删除任务-->
+    <target name="1-Clean" description="删除目录">
+        <echo message="---------- 删除目录 ----------"/>
+        <delete dir="${build}" />
+    </target>
+
+    <!--创建一个临时目录-->
+    <target name="2-Init" description="初始化" depends="1-Clean">
+        <echo message="---------- 初始化 ----------"/>
+        <mkdir dir="${build.class}" />
+        <mkdir dir="${build.src}" />
+        <copy todir="${build.src}">
+            <fileset dir="${basedir}/auth">
+                <include name="**/*.*" />
+            </fileset>
+        </copy>
+        <copy todir="${build.src}">
+            <fileset dir="${basedir}/model">
+                <include name="**/*.*" />
+            </fileset>
+        </copy>
+        <copy todir="${build.src}">
+            <fileset dir="${basedir}/service">
+                <include name="**/*.*" />
+            </fileset>
+        </copy>
+        <copy todir="${build.src}">
+            <fileset dir="${basedir}/src">
+                <include name="**/*.*" />
+            </fileset>
+        </copy>
+        <copy todir="${build.src}">
+            <fileset dir="${basedir}/web">
+                <include name="**/*.*" />
+            </fileset>
+        </copy>
+        <copy todir="${build.src}">
+            <fileset dir="${basedir}/webservice">
+                <include name="**/*.*" />
+            </fileset>
+        </copy>
+    </target>
+
+    <!--编译java源文件-->
+    <target name="3-Compile" description="编译文件" depends="2-Init">
+        <echo message="---------- 编译文件 ----------"/>
+        <javac srcdir="${build.src}" destdir="${build.class}">
+            <classpath refid="classpath" />
+            <compilerarg line="-encoding UTF-8 -Xlint:deprecation -Xlint:unchecked "/>
+        </javac>
+        <copy todir="${build.class}">
+            <fileset dir="${build.src}">
+                <exclude name="**/*.java" />
+            </fileset>
+        </copy>
+    </target>
+
+    <!--打成WAR包-->
+    <target name="4-Package" description="打成WAR包" depends="3-Compile">
+        <echo message="---------- 打成WAR包 ----------"/>
+        <war destfile="${build}/${ant.project.name}.war" webxml="${webRoot}/WEB-INF/web.xml" >
+            <fileset dir="${webRoot}"></fileset>
+            <!--<lib dir="${lib}"/>-->
+            <classes dir="${build.class}"/>
+        </war>
+    </target>
+
+    <!--把WAR放到一个指定目录，这里是直接布署到TOMCAT服务器-->
+    <target name="5-Publish" description="发布" depends="4-Package">
+        <copy file="${build}/${ant.project.name}.war" todir="${webserver}">
+        </copy>
+    </target>
+
+    <!--把打好的WAR删除-->
+    <target name="6-All" description="清除临时内容" depends="5-Publish">
+        <echo message="---------- 清除临时内容 ----------"/>
+        <delete dir="${build}"/>
+    </target>
+</project>

@@ -1,0 +1,166 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@include file="/commons/taglibs.jsp"%>
+<script type="text/javascript" src="${ctx}/js/My97Date/WdatePicker.js"></script>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="http://www.ncme.org.cn/admin/new_page/css/reset.css" />
+	<link rel="stylesheet" href="http://www.ncme.org.cn/admin/new_page/css/index.css" />
+	<script type="text/javascript" src="http://www.ncme.org.cn/admin/new_page/js/jquery.js"></script>
+	 <script src="http://www.ncme.org.cn/admin/js/jquery-1.11.1.min.js"></script>
+	 <script src="http://www.ncme.org.cn/admin/js/jquery.mobile.custom.min.js"></script>
+	 <script src="http://www.ncme.org.cn/admin/js/jquery.bxslider.js"></script>
+	 <script src="http://www.ncme.org.cn/admin/js/iconfont.js"></script>
+	 <script src="http://www.ncme.org.cn/admin/js/main.min.js"></script>
+	 <link href="http://www.ncme.org.cn/admin/css/animate.min.css" rel="stylesheet">
+	 <link href="http://www.ncme.org.cn/admin/css/jquery.bxslider.css" rel="stylesheet">
+	 <link href="http://www.ncme.org.cn/admin/css/global.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="content no_padding" style="width:90%;margin-top:100px;">
+        <div class="tabs">
+            <div class="comment_top">
+                <h1 class="main_title_2">
+                    <span class="go_comment" style="cursor:pointer"><i class="fa fa-edit"></i> 去讨论 </span>讨论点
+                </h1>
+            </div>
+            <div class="comment_form" style="display:none">
+                <p class="fl ml20">
+				</p>
+                <textarea name="comment_cont" class="comment_cont"></textarea>
+                <div class="foot" style="margin-top:10px;">
+                    <button name="comment_submit" id="comment_submit" type="button" class="btn btn_orange btn_small">评论</button>
+                    <span class="text_count">还能输入<span class="num_count">200</span>字</span>
+                </div>
+            </div>
+
+            <c:if test="${not empty topicDiscussion}">
+               <div id="taolun" class="news_cont clearfix" style="width:90%">
+                <div class="top_cont">
+                    <h1>${topicDiscussion.talkContent}</h1>
+                    <h3>
+                        <span>${topicDiscussion.createDate}</span>
+                        <span>${topicDiscussion.createUser}</span>
+                    </h3>
+                </div>
+                <ul class="comments_list">
+                    <c:forEach items="${topicDiscussion.cvSetUnitDiscussList}" var="l">
+                       <li>
+		                    <span class="avatar tiny"><img src="${ctx}/qiantai_page/img/userlogo.jpg"></span>
+		                    <p class="cont">${l.discussContent}</p>
+		                    <p>
+		                        <span class="float_right">
+		                            <i class="fa fa-thumbs-o-up"></i>
+		                            <i class="fa fa-reply"></i>
+		                        </span>
+		                        <span class="name">${l.systemUserName}</span>
+		                        <span class="datetime">${l.discussDate}</span>
+		                    </p>
+	                   </li>
+                    </c:forEach>
+                 </ul>
+               </div>
+            </c:if>
+ 
+            <!--<c:forEach items="${caseData.caseCourseDiscussList}" var="list">
+
+                <ul class="comments_list">
+                    <c:forEach items="${list.discussList}" var="discussList">
+                       <li>
+		                    <span class="avatar tiny"><img src="${ctx}/qiantai_page/img/userlogo.jpg"></span>
+		                    <p class="cont">${discussList.discussContent}</p>
+		                    <p>
+		                        <span class="float_right">
+		                            <i class="fa fa-thumbs-o-up"></i>
+		                            <i class="fa fa-reply"></i>
+		                        </span>
+		                        <span class="name">${discussList.systemUserName}</span>
+		                        <span class="datetime">${discussList.discussDate}</span>
+		                    </p>
+	                   </li>
+                    </c:forEach>
+                 </ul>
+              </div>
+            </c:forEach>-->
+            
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    var discussId = '${topicDiscussion.id}';
+
+    $(function () {
+        $(".go_comment").click(function(){
+            $(".comment_starts,.comment_form").show();
+        });
+        
+        //计算评论字数
+        $('.comment_form .comment_cont').on("keyup",function(){
+            var txtLeng = $('.comment_form .comment_cont').val().length;      //把输入字符的长度赋给txtLeng
+            //拿输入的值做判断
+            if( txtLeng>200 ){
+                //输入长度大于200时span显示0
+                $('.comment_form .num_count').text(' 0 ');
+                //截取输入内容的前300个字符，赋给fontsize
+                var fontsize = $('.comment_form .comment_cont').val().substring(0,200);
+                //显示到textarea上
+                $('.comment_form .comment_cont').val( fontsize );
+            }else{
+                //输入长度小于300时span显示300减去长度
+                $('.comment_form .num_count').text(200-txtLeng);
+            }
+        });
+        
+        /*
+         * @author 张建国
+         * @time   2017-02-20
+         * 说      明：提交评论
+         */
+        $("#comment_submit").click(function(){
+        	var content = $(".comment_cont").val();
+        	if(content==null || content==''){
+        		alert("请输入评论内容.");
+        		return;
+        	}
+        	//获取父级页面变量信息
+        	var cvsetId = window.parent.projectId;
+        	
+        	var unitId = window.parent.unitId;
+        	
+        	var url = window.parent.adminURL;
+        	
+        	var userId = window.parent.userId;
+
+        	//通过AJAX保存评论的信息
+        	$.ajax({
+        		url:url+"/caseManage/caseSaveDiscuss.do",
+     		    type: 'POST',
+     		    dataType: 'json',
+     		    data:{
+     		    	cvsetId:cvsetId,
+     		    	unitId:unitId,
+     		    	content:content,
+     		    	discussId:discussId,
+     		    	userId:userId
+     		    },
+      		    success: function(data){   
+      		    	var result = eval(data);
+      		    	if(result.message=='success'){
+      		    		//重置信息
+      		    		$(".comment_cont").val('');
+      		    		//$("#discussId").val('');
+      		    		//本页刷新
+      		    		//location.reload();
+      		    		//div局部刷新---by scp
+      		    		$("#taolun").load(location.href+" #taolun"); 
+      		    	}
+      		    }
+      		});
+        });
+    });
+</script>
+</body>

@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="systemCardForm" type="com.hys.exam.struts.form.SystemCardForm"></form-bean>
+		<form-bean name="systemCardOrderForm"
+			type="com.hys.exam.struts.form.SystemCardOrderForm"></form-bean>
+		<form-bean name="systemSiteForm" type="com.hys.exam.struts.form.SystemSiteForm"></form-bean>
+		<form-bean name="systemUserForm" type="com.hys.exam.struts.form.SystemUserForm"></form-bean>
+		<form-bean name="expertInfoForm" type="com.hys.exam.struts.form.ExpertInfoForm"></form-bean>
+		<form-bean name="paperForm" type="com.hys.exam.struts.form.OlemPaperForm"></form-bean>
+		<form-bean name="examExaminationForm"
+			type="com.hys.exam.struts.form.ExamExaminationForm"></form-bean>
+		<form-bean name="CVS_Form" type="com.hys.exam.struts.form.CVS_Form"></form-bean>
+		<form-bean name="cvForm" type="com.hys.exam.struts.form.CVForm"></form-bean>
+		<form-bean name="cvUnitForm" type="com.hys.exam.struts.form.CVUnitForm"></form-bean>
+		<form-bean name="orgForm" type="com.hys.exam.struts.form.OrgForm"></form-bean>
+		<form-bean name="queryForm" type="com.hys.exam.struts.form.CE_Form"></form-bean>
+		<form-bean name="issueForm" type="com.hys.exam.struts.form.IssueForm"></form-bean>
+		<form-bean name="sentenceForm" type="com.hys.exam.struts.form.SentenceForm"></form-bean>
+		<form-bean name="bannerForm" type="com.hys.exam.struts.form.BannerForm"></form-bean>
+		<form-bean name="feedbackForm" type="com.hys.exam.struts.form.FeedbackForm"></form-bean>
+		<form-bean name="replyForm" type="com.hys.exam.struts.form.ReplyForm"></form-bean>
+		<form-bean name="messageForm" type="com.hys.exam.struts.form.MessageForm"></form-bean>
+	</form-beans>
+
+	<action-mappings>
+
+		<action path="/welcome" type="com.hys.auth.struts.action.LoginAction">
+			<forward name="success" path="/peixun_page/index.jsp" />
+		</action>
+
+		<action path="/editPwd" scope="request"
+			type="com.hys.auth.struts.action.ProcessEditPasswordAction">
+			<forward name="input" path="/peixun_page/editPass.jsp" />
+			<forward name="success" path="/peixun_page/index.jsp" />
+		</action>
+
+		<!-- 能力管理 -->
+
+		<action path="/quality/userImageManage"
+			type="com.hys.exam.struts.action.quality.UserImageAction" scope="request">
+			<forward name="list1"
+				path="/peixun_page/qualityManage/userImageManage/userImageList1.jsp" />
+			<forward name="list2"
+				path="/peixun_page/qualityManage/userImageManage/userImageList2.jsp"></forward>
+		</action>
+
+		<action path="/qualityManage/qualityManage"
+			type="com.hys.exam.struts.action.quality.QualityModelAction" scope="request">
+			<forward name="list1"
+				path="/peixun_page/qualityManage/qualityModel/qualityModel1.jsp" />
+			<forward name="list2"
+				path="/peixun_page/qualityManage/qualityModel/qualityModel2.jsp" />
+			<forward name="list3"
+				path="/peixun_page/qualityManage/qualityModel/qualityModel3.jsp" />
+		</action>
+
+		<action path="/qualityManage/guide"
+			type="com.hys.exam.struts.action.quality.StudyGuideAction" scope="request">
+			<forward name="list1"
+				path="/peixun_page/qualityManage/studyGuide/studyGuide1.jsp" />
+			<forward name="list2"
+				path="/peixun_page/qualityManage/studyGuide/studyGuide2.jsp" />
+			<forward name="list3"
+				path="/peixun_page/qualityManage/studyGuide/studyGuide3.jsp" />
+			<forward name="list4"
+				path="/peixun_page/qualityManage/studyGuide/studyGuide4.jsp" />
+			<forward name="list5"
+				path="/peixun_page/qualityManage/studyGuide/studyGuide5.jsp" />
+		</action>
+
+		<action path="/CVSet/CVManage" name="cvForm"
+			type="com.hys.exam.struts.action.CVSet.CVAction" scope="request">
+			<forward name="list"
+				path="/peixun_page/CVSet/CVManage/courseManageList.jsp" />
+			<forward name="add" path="/peixun_page/CVSet/CVManage/courseCreate.jsp" />
+			<forward name="edit" path="/peixun_page/CVSet/CVManage/courseEdit.jsp" />
+			<forward name="addContent"
+				path="/peixun_page/CVSet/CVManage/courseCreateContent.jsp" />
+			<forward name="detail" path="/peixun_page/CVSet/CVManage/cvDetail.jsp" />
+			<forward name="view" path="/peixun_page/CVSet/CVManage/courseView.jsp" />
+		</action>
+		<action path="/CVSet/CVUnitAdd" name="cvUnitForm"
+			type="com.hys.exam.struts.action.CVSet.CVAction" scope="request">
+			<forward name="unionEdit" path="/peixun_page/CVSet/CVManage/unionEdit.jsp" />
+			<forward name="clone" path="/peixun_page/CVSet/CVManage/courseClone.jsp" />
+		</action>
+		<!-- Ma_SG -->
+		<action path="/CVSetManage" type="com.hys.exam.struts.action.CVSet.CVSetAction"
+			name="CVS_Form" scope="request">
+			<forward name="list" path="/peixun_page/CVSet/manage/manage_view.jsp"></forward>
+			<forward name="edit_page" path="/peixun_page/CVSet/manage/CVS_update.jsp"></forward>
+			<forward name="add_page" path="/peixun_page/CVSet/manage/CVS_add.jsp"></forward>
+			<forward name="myXiangMu" path="/peixun_page/CVSet/myXiangMu/myXiangMu.jsp"></forward>
+			<forward name="myXueKe" path="/peixun_page/CVSet/myXueKe/myXueKe.jsp"></forward>			
+		</action>
+		<action path="/CVSetQualify" type="com.hys.exam.struts.action.CVSet.CVSetAction"
+			name="CVS_Form" scope="request">
+			<forward name="list" path="/peixun_page/CVSet/qualify/qualify_main.jsp"></forward>
+			<forward name="edit_page" path="/peixun_page/CVSet/qualify/CVS_view.jsp"></forward>
+			<forward name="add_page" path="/peixun_page/CVSet/qualify/CVS_add.jsp"></forward>
+		</action>
+		<action path="/CVSetQualifyUnion" type="com.hys.exam.struts.action.CVSet.CVSetAction"
+			name="CVS_Form" scope="request">
+			<forward name="union" path="/peixun_page/CVSet/qualify/union.jsp"></forward>
+		</action>
+
+
+
+		<action path="/expert/GetExpert" name="expertInfoForm"
+			type="com.hys.exam.struts.action.expert.ExpertManageAction" scope="request">
+		</action>
+
+
+		<action path="/getCourseList" type="com.hys.exam.struts.action.CVSet.CVAction"
+			name="cvForm" scope="request">
+			<forward name="list" path="/peixun_page/CVSet/manage/getCourse.jsp"></forward>
+		</action>
+
+		<action path="/CVSet/CVDistribute"
+			type="com.hys.exam.struts.action.CVSet.CVDistirbuteManageAction"
+			scope="request">
+			<forward name="list"
+				path="/peixun_page/CVSet/CVDistribute/CVDistManage.jsp"></forward>
+			<forward name="distribute"
+				path="/peixun_page/CVSet/CVDistribute/CVDistributePage.jsp"></forward>
+			<forward name="save" path="/CVSet/CVDistribute.do?method=list"></forward>
+			<forward name="preView"
+				path="/peixun_page/CVSet/CVDistribute/CVDisPreview.jsp"></forward>
+			<forward name="authorList"
+				path="/peixun_page/CVSet/CVDistribute/CVDistManageInfo.jsp"></forward>
+			<forward name="releaseList"
+				path="/peixun_page/CVSet/CVDistribute/CVSReleaseManage.jsp"></forward>
+			<forward name="alreadyReleaseList"
+				path="/peixun_page/CVSet/CVDistribute/CVSAlreadyReleaseManage.jsp"></forward>
+			<forward name="distributeView"
+				path="/peixun_page/CVSet/CVDistribute/CVDistributeView.jsp"></forward>
+		</action>
+
+		<!-- 学习卡-站点-继教地区 -->
+		<action path="/cardManage/SystemCardTypeSiteOrg"
+			type="com.hys.exam.struts.action.system.SystemCardTypeSiteOrganAction"
+			scope="request">
+			<forward name="authorized-site-list"
+				path="/peixun_page/systemSite/authorized-site-list.jsp" />
+			<forward name="authorized-organ-list"
+				path="/peixun_page/systemSite/authorized-organ-list.jsp" />
+			<forward name="authorized-paycardorgan-list"
+				path="/peixun_page/systemSite/authorized-paycardorgan-list.jsp" />
+		</action>
+
+		<!-- 学习卡 -->
+		<action path="/cardManage/SystemCard" name="systemCardForm"
+			type="com.hys.exam.struts.action.system.SystemCardAction" scope="request">
+			<forward name="list" path="/peixun_page/cardManage/systemCard.jsp" />
+			<forward name="selectCardType"
+				path="/peixun_page/cardManage/sub/selectCardType.jsp" />
+			<forward name="edit" path="/peixun_page/cardManage/systemCardEdit.jsp" />
+			<!-- 卡类型授权管理 -->
+			<forward name="allotList" path="/peixun_page/cardManage/systemCardAllot.jsp" />
+			<forward name="cardTypeList" path="/peixun_page/cardManage/sub/cardTypeList.jsp" />
+			<forward name="createCards" path="/peixun_page/cardManage/sub/createCards.jsp" />
+			<forward name="createCardList"
+				path="/peixun_page/cardManage/systemCreateCardList.jsp" />
+		</action>
+
+		<!-- 订单管理 -->
+		<action path="/orderManage/OrderManage" name="systemCardOrderForm"
+			type="com.hys.exam.struts.action.system.SystemCardOrderAction" scope="request">
+			<forward name="list" path="/peixun_page/orderManage/OrderManage.jsp" />
+			<forward name="edit" path="/peixun_page/orderManage/OrderEdit.jsp" />
+			<forward name="orderCardList" path="/peixun_page/orderManage/OrderDetail.jsp" />
+		</action>
+		
+		<!-- 话题讨论管理 -->
+		<action path="/talk/topicDiscussionManage" name="systemCardOrderForm"
+			type="com.hys.exam.struts.action.talk.TopicDiscussionAction" scope="request">
+			<forward name="SUCCESS" path="/peixun_page/talk/TopicDiscussionAdd.jsp" />
+			<forward name="queryOne" path="/peixun_page/talk/TopicDiscussion.jsp"></forward>
+		</action>
+
+		<!-- 学习卡类型 -->
+		<action path="/cardManage/SystemCardType" name="systemCardTypeForm"
+			type="com.hys.exam.struts.action.system.SystemCardTypeAction" scope="request">
+			<forward name="list" path="/peixun_page/cardManage/systemCardType.jsp" />
+			<forward name="edit"
+				path="/peixun_page/cardManage/systemCardTypeEdit.jsp" />
+			<forward name="view"
+				path="/peixun_page/cardManage/systemCardTypeView.jsp" />
+			<forward name="authorized-course-list"
+				path="/peixun_page/cardManage/sub/authorized-course-list.jsp" />
+			<forward name="authorized-not-course-list"
+				path="/peixun_page/cardManage/sub/authorized-not-course-list.jsp" />
+			<forward name="authorized-org-list"
+				path="/peixun_page/cardManage/sub/authorized-org-list.jsp" />
+			<forward name="authorized-not-org-list"
+				path="/peixun_page/cardManage/sub/authorized-not-org-list.jsp" />
+			<forward name="systemCardTypeCVlist"
+				path="/peixun_page/cardManage/sub/systemCardTypeCVlist.jsp" />
+			<forward name="selectCvBindCardType"
+				path="/peixun_page/cardManage/sub/selectCvBindCardType.jsp" />
+		</action>
+
+		<!-- 卡状态管理 -->
+		<action path="/cardManage/SystemCardStatus"
+			type="com.hys.exam.struts.action.system.SystemCardStatusAction"
+			scope="request">
+			<forward name="list" path="/peixun_page/cardManage/systemCardStatus.jsp" />
+			<forward name="userBindList" path="/peixun_page/cardManage/sub/userBindList.jsp" />
+			<forward name="viewDetail" path="/peixun_page/cardManage/systemCardDetail.jsp" />
+		</action>
+
+
+		<action path="/system/systemSite" name="systemSiteForm"
+			type="com.hys.exam.struts.action.SystemSiteAction" scope="request">
+			<forward name="list"
+				path="/peixun_page/userManage/systemSiteManage/systemSiteList.jsp" />
+			<forward name="add"
+				path="/peixun_page/userManage/systemSiteManage/systemSiteAdd.jsp" />
+			<forward name="edit"
+				path="/peixun_page/userManage/systemSiteManage/systemSiteEdit.jsp" />
+			<forward name="view"
+				path="/peixun_page/userManage/systemSiteManage/systemSiteView.jsp" />
+			<forward name="exam"
+				path="/peixun_page/userManage/systemSiteManage/systemSiteExam.jsp" />
+			<forward name="siteExam"
+				path="/peixun_page/userManage/systemSiteManage/siteExam.jsp" />
+		</action>
+
+		<action path="/system/systemAdminOrgan" name="systemAdminOrganForm"
+			type="com.hys.exam.struts.action.system.SystemAdminOrganAction"
+			scope="request">
+			<forward name="list"
+				path="/peixun_page/userManage/systemAdminOrgan/systemAdminOrganList.jsp" />
+			<forward name="edit"
+				path="/peixun_page/userManage/systemAdminOrgan/systemAdminOrganEdit.jsp" />
+			<forward name="view"
+				path="/peixun_page/userManage/systemAdminOrgan/systemAdminOrganView.jsp" />
+			<forward name="subList"
+				path="/peixun_page/userManage/systemAdminOrgan/systemAdminOrganSubList.jsp" />
+		</action>
+
+		<action path="/system/systemUser" name="systemUserForm"
+			type="com.hys.exam.struts.action.SystemUserAction" scope="request">
+			<forward name="list"
+				path="/peixun_page/userManage/systemUserManage/systemUserList.jsp" />
+			<forward name="add"
+				path="/peixun_page/userManage/systemUserManage/systemUserAdd.jsp" />
+			<forward name="edit"
+				path="/peixun_page/userManage/systemUserManage/systemUserEdit.jsp" />
+			<forward name="view"
+				path="/peixun_page/userManage/systemUserManage/systemUserView.jsp" />
+			<forward name="update" path="/system/systemUser.do?method=list" />
+		</action>
+
+		<action path="/system/SystemPostHistory"
+			type="com.hys.exam.struts.action.system.SystemPostHistoryAction"
+			scope="request">
+			<forward name="list"
+				path="/peixun_page/userManage/systemPostHistroyManage/postList.jsp" />
+			<forward name="update"
+				path="/peixun_page/userManage/systemPostHistroyManage/postUpdate.jsp" />
+		</action>
+
+
+		<!-- 专家管理 -->
+		<action path="/expert/ExpertManage" name="expertInfoForm"
+			type="com.hys.exam.struts.action.expert.ExpertManageAction" scope="request">
+			<forward name="listView"
+				path="/peixun_page/userManage/expertManage/expertView.jsp" />
+			<forward name="listEdit"
+				path="/peixun_page/userManage/expertManage/expertListEdit.jsp" />
+			
+			<forward name="detailEdit"
+				path="/peixun_page/userManage/expertManage/expertInfoEdit.jsp" />
+				<forward name="detailView"
+				path="/peixun_page/userManage/expertManage/expertInfoView.jsp" />
+			<forward name="edit"
+				path="/peixun_page/userManage/expertManage/expertEdit.jsp" />
+			<forward name="detail"
+				path="/peixun_page/userManage/expertManage/expertInfo.jsp" />
+		</action>
+
+		<!-- 考试管理 -->
+		<action path="/paperManage/paperList" name="paperForm"
+			type="com.hys.exam.struts.action.exam.paper.PaperListAction" scope="request">
+			<forward name="SUCCESS" path="/peixun_page/paperManage/paperList.jsp" />
+		</action>
+		
+		<!-- 考试管理外部 -->
+		<action path="/paperManage/paperList2" name="paperForm"
+			type="com.hys.exam.struts.action.exam.paper.PaperListAction2" scope="request">
+			<forward name="SUCCESS" path="/peixun_page/paperManage/paperList2.jsp" />
+		</action>
+
+		<action path="/paperManage/paperUpdate"
+			type="com.hys.exam.struts.action.exam.paper.PaperUpdateAction" scope="request"
+			name="paperForm">
+			<forward name="SUCCESS" path="/peixun_page/paperManage/paperUpdate.jsp"></forward>
+		</action>
+		
+		<!-- 试卷管理 -->
+		<action path="/paperManage/paperView"
+			type="com.hys.exam.struts.action.exam.paper.PaperViewAction" scope="request">
+			<forward name="SUCCESS_1" path="/peixun_page/paperManage/paperView.jsp"></forward>
+			<!-- <forward name="SUCCESS_3" path="/peixun_page/paperManage/paperView2.jsp"></forward> -->
+			<forward name="SUCCESS_3" path="/peixun_page/paperManage/paperViewNew.jsp"></forward>
+			<forward name="SUCCESS_2" path="/peixun_page/paperManage/paperUpdate.jsp"></forward>
+			<forward name="SUCCESS" path="/peixun_page/paperManage/paperExamView.jsp"></forward>
+		</action>
+		<action path="/paperManage/paperDelete"
+			type="com.hys.exam.struts.action.exam.paper.PaperDeleteAction" scope="request">
+		</action>
+		<action path="/paperManage/paperOut"
+			type="com.hys.exam.struts.action.exam.paper.PaperOutAction" scope="request">
+			<forward name="SUCCESS" path="/peixun_page/paperManage/paperOut.jsp"></forward>
+		</action>
+		<action path="/paperManage/paperAnswer"
+			type="com.hys.exam.struts.action.exam.paper.PaperAnswerAction" scope="request">
+			<forward name="SUCCESS" path="/peixun_page/paperManage/paperAnswer.jsp"></forward>
+		</action>
+		<action path="/paperManage/getPaperListType" scope="request"
+			type="com.hys.exam.struts.action.PaperListAjaxAction">
+		</action>
+
+		<action path="/paperManage/paperSelectQuestion"
+			type="com.hys.exam.struts.action.exam.ExamQuesListAction" scope="request"
+			name="questForm">
+			<forward name="quesListHand"
+				path="/peixun_page/paperManage/paperSelectQuestion.jsp"></forward>
+			<forward name="quesListByIds" path="/peixun_page/paperManage/paperPreview.jsp" />
+		</action>
+
+		<!-- 查看试题 -->
+		<action path="/paperManage/viewQuestion"
+			type="com.hys.exam.struts.action.ExamViewQuestionAction" name="examQuestionForm"
+			scope="request">
+			<forward name="VIEW_A"
+				path="/peixun_page/QuestionManage/examEditQuestionVerifyA.jsp" />
+			<forward name="VIEW_B"
+				path="/peixun_page/QuestionManage/examEditQuestionVerifyB.jsp" />
+			<forward name="VIEW_C"
+				path="/peixun_page/QuestionManage/examEditQuestionVerifyC.jsp" />
+			<forward name="VIEW_D"
+				path="/peixun_page/QuestionManage/examEditQuestionVerifyD.jsp" />
+			<forward name="VIEW_B1"
+				path="/peixun_page/QuestionManage/examEditQuestionVerifyB1.jsp" />
+			<forward name="VIEW_A3"
+				path="/peixun_page/QuestionManage/examEditQuestionVerifyA3.jsp" />
+		</action>
+
+		<action path="/examManage/examList" type="com.hys.exam.struts.action.exam.ExamListAction"
+			scope="request">
+			<forward name="SUCCESS" path="/peixun_page/paperManage/examManage.jsp" />
+		</action>
+		<action path="/examManage/examSave" type="com.hys.exam.struts.action.exam.ExamSaveAction"
+			scope="request" name="examExaminationForm">
+			<forward name="SUCCESS" path="/examManage/examList.do"></forward>
+		</action>
+		<action path="/examManage/examEdit" type="com.hys.exam.struts.action.exam.ExamUpdateAction"
+			scope="request">
+			<forward name="exam" path="/peixun_page/paperManage/examEdit.jsp"></forward>
+			<forward name="exercise" path="/peixun_page/paperManage/exerciseEdit.jsp"></forward>
+			<forward name="fail" path="/examManage/examList.do"></forward>
+		</action>
+		<action path="/examManage/getExamListType" scope="request"
+			type="com.hys.exam.struts.action.ExamListAjaxAction">
+		</action>
+		<action path="/examManage/examDelete" type="com.hys.exam.struts.action.exam.ExamDeleteAction"
+			scope="request">
+		</action>
+		<action path="/examManage/examTiaozhong"
+			type="com.hys.exam.struts.action.exam.ExamTiaozhongAction" scope="request">
+		</action>
+		<action path="/examManage/examView" type="com.hys.exam.struts.action.exam.ExamViewAction"
+			scope="request">
+			<forward name="SUCCESS" path="/peixun_page/paperManage/paperView.jsp"></forward>
+		</action>
+		<action path="/examManage/examPaperDetail" name="paperForm"
+			type="com.hys.exam.struts.action.exam.paper.PaperListAction" scope="request">
+			<forward name="SUCCESS" path="/peixun_page/paperManage/examPaperList.jsp"></forward>
+		</action>
+		<action path="/examManage/examPaperDetail2" name="paperForm"
+			type="com.hys.exam.struts.action.exam.paper.PaperListAction" scope="request">
+			<forward name="SUCCESS" path="/peixun_page/paperManage/examPaperList2.jsp"></forward>
+		</action>
+		<action path="/examManage/hospitalList"
+			type="com.hys.exam.struts.action.exam.ExamHospitalAction" scope="request">
+			<forward name="SUCCESS" path="/peixun_page/paperManage/hospitalList.jsp"></forward>
+		</action>
+		<action path="/paperManage/countLabelId"
+			type="com.hys.exam.struts.action.exam.paper.PaperCountLabelIdAction"
+			scope="request">
+		</action>
+		<action path="/paperManage/examPaperView"
+			type="com.hys.exam.struts.action.exam.paper.PaperViewAction" scope="request">
+			<forward name="SUCCESS_1" path="/peixun_page/paperManage/examPaperView.jsp"></forward>
+		</action>
+		<action path="/examManage/examStudentDetail" name="systemUserForm"
+			type="com.hys.exam.struts.action.SystemUserAction" scope="request">
+			<forward name="list" path="/peixun_page/paperManage/examStudentAdd.jsp" />
+		</action>
+		<action path="/examManage/examUserDetail" name="systemUserForm"
+			type="com.hys.exam.struts.action.SystemUserAction" scope="request">
+			<forward name="list" path="/peixun_page/paperManage/examUserAdd.jsp" />
+		</action>
+		<action path="/examManage/examOrgStudent"
+			type="com.hys.exam.struts.action.exam.ExamHospitalStudentAjaxAction">
+		</action>
+		<!-- 选择学科 AJAX -->
+		<action path="/propManage/getPropListAjax" scope="request"
+			type="com.hys.exam.struts.action.ExamPropListAjaxAction">
+		</action>
+		<action path="/propManage/propWorkUnit" scope="request" type="com.hys.exam.struts.action.WorkUnitListAjaxAction">
+		</action>
+
+		<!-- -->
+		<action path="/propManage/getPropListByDirectAjax" scope="request"
+			type="com.hys.exam.struts.action.ExamPropListByDirectAjaxAction">
+		</action>
+
+		<action path="/examManage/getHospitalListAjax" scope="request"
+			type="com.hys.exam.struts.action.exam.ExamHospitalListAjaxAction">
+		</action>
+		<action path="/examManage/examPaperQuestionFind" scope="request"
+			type="com.hys.exam.struts.action.exam.paper.ExamPaperQuestionFind">
+			<forward name="success"
+				path="/peixun_page/paperManage/examPaperQuestionFind.jsp" />
+		</action>
+		<action path="/examManage/paperAdd" scope="request"
+			type="com.hys.exam.struts.action.exam.paper.PaperAddAction" name="paperForm">
+			<forward name="fail" path="/peixun_page/paperManage/paperAdd.jsp" />
+		</action>
+
+		<!-- 系统维护 -->
+		<action path="/system/systemUserStudent" name="systemUserForm"
+			type="com.hys.exam.struts.action.SystemUserAction" scope="request">
+			<forward name="list"
+				path="/peixun_page/userManage/systemUserManage/systemStudentList.jsp" />
+			<forward name="add"
+				path="/peixun_page/userManage/systemUserManage/systemStudentAdd.jsp" />
+			<forward name="edit"
+				path="/peixun_page/userManage/systemUserManage/systemStudentEdit.jsp" />
+			<forward name="view"
+				path="/peixun_page/userManage/systemUserManage/systemStudentView.jsp" />
+			<forward name="accountview"
+				path="/peixun_page/userManage/systemUserManage/systemAccountView.jsp" />
+			<forward name="accountedit"
+				path="/peixun_page/userManage/systemUserManage/systemAccountEdit.jsp" />
+
+		</action>
+
+		<!-- 编辑管理 -->
+		<action path="/system/editManage" name="systemUserForm"
+			type="com.hys.exam.struts.action.SystemUserAction" scope="request">
+			<forward name="list"
+				path="/peixun_page/userManage/systemUserManage/systemEditorList.jsp" />
+		</action>
+		
+		<!-- 客服管理 -->
+		<action path="/system/customerservice/editManage" name="systemUserForm"
+			type="com.hys.exam.struts.action.CustomerServiceAction" scope="request">
+			<forward name="list"
+				path="/peixun_page/systemManage/customerServiceManage/customerServiceList.jsp" />
+		</action>
+
+
+		<!-- 角色管理 -->
+		<action path="/systemManage/RoleManage" scope="request"
+			type="com.hys.auth.struts.action.RoleManageAction">
+			<forward name="success" path="/peixun_page/systemManage/RoleManage.jsp" />
+		</action>
+
+		<action path="/systemManage/saveRole" scope="request"
+			type="com.hys.auth.struts.action.ProcessSaveRolesAction">
+		</action>
+
+		<action path="/systemManage/deleteRole" scope="request"
+			type="com.hys.auth.struts.action.ProcessDeleteRoleAction">
+		</action>
+
+		<action path="/systemManage/getRole" scope="request"
+			type="com.hys.exam.struts.action.system.SystemRoleAddAction">
+			<forward name="success" path="/peixun_page/systemManage/roleAdd.jsp" />
+			<forward name="input" path="/systemManage/RoleManage.do"></forward>
+		</action>
+
+		<!-- 账号管理 -->
+		<action path="/systemManage/getAccounts" scope="request"
+			type="com.hys.exam.struts.action.system.SystemAccountManageAction">
+			<forward name="success"
+				path="/peixun_page/systemManage/authAccountManage.jsp" />
+			<forward name="executeHtml" path="/peixun_page/systemManage/executeHtml.jsp" />
+		</action>
+		<!-- 生成静态页面 -->
+		<action path="/systemManage/executeHtml" scope="request"
+				type="com.hys.exam.struts.action.system.SystemAccountManageAction">
+
+			<forward name="executeHtml" path="/peixun_page/systemManage/executeHtml.jsp" />
+		</action>
+
+		<!--菜单管理 -->
+		<action path="/systemManage/getMenu" scope="request"
+			type="com.hys.exam.struts.action.system.SystemMenuManageAction">
+			<forward name="success"
+				path="/peixun_page/systemManage/systemMenuManage.jsp" />
+			<forward name="systemlog" path="/peixun_page/audit/auditManage.jsp" />
+		</action>
+
+		<!-- 内容管理 -->
+		<action path="/contentManage/issueManage" scope="request" name="issueForm"
+			type="com.hys.exam.struts.action.content.IssueManageAction">
+			<forward name="list" path="/peixun_page/contentManage/issueList.jsp" />
+			<forward name="edit" path="/peixun_page/contentManage/issueEdit.jsp" />
+		</action>
+		<!-- 文章管理 -->
+		<action path="/contentManage/sentenceManage" name="sentenceForm"
+			scope="request" type="com.hys.exam.struts.action.content.SentenceAction">
+			
+			<forward name="success"
+				path="/peixun_page/contentManage/sentenceManage/sentenceManage.jsp" />
+			<forward name="add"
+				path="/peixun_page/contentManage/sentenceManage/sentenceAdd.jsp" />
+			<forward name="edit"
+				path="/peixun_page/contentManage/sentenceManage/sentenceEdit.jsp" />
+		</action>
+		<!-- banner管理 -->
+		<action path="/contentManage/bannerManage" name="bannerForm"
+			scope="request" type="com.hys.exam.struts.action.content.BannerAction">
+			
+			<forward name="success"
+				path="/peixun_page/contentManage/bannerManage/bannerManage.jsp" />
+			<forward name="add"
+				path="/peixun_page/contentManage/bannerManage/bannerAdd.jsp" />
+			<forward name="edit"
+				path="/peixun_page/contentManage/bannerManage/bannerEdit.jsp" />
+		</action>
+		
+		<!-- /contentManage/FeedBackManage.do?method=list -->
+		<!-- 反馈意见管理 -->
+		<action path="/contentManage/feedbackManage" name="feedbackForm"
+			scope="request" type="com.hys.exam.struts.action.content.FeedBackAction">
+
+			<forward name="success"
+				path="/peixun_page/contentManage/feedBackManage/feedBackManage.jsp" />
+
+			<forward name="edit"
+				path="/peixun_page/contentManage/feedBackManage/feedBackEdit.jsp" />
+		</action>
+		<!-- 回复意见管理 -->
+		<action path="/contentManage/replyManage" name="replyForm"
+			scope="request" type="com.hys.exam.struts.action.content.ReplyAction">
+			<!-- 回复成功后，跳转反馈列表 -->
+			<!-- <forward name="success" -->
+			<!-- path="/peixun_page/contentManage/feedBackManage/feedBackManage.jsp" 
+				/> -->
+		</action>
+
+
+		<!-- 消息管理 /contentManage/messageManage.do?method=list -->
+		<action path="/contentManage/messageManage" name="messageForm"
+			scope="request" type="com.hys.exam.struts.action.content.MessageAction">
+			<forward name="success"
+				path="/peixun_page/contentManage/MessageManage/messageManage.jsp" />
+			<forward name="add"
+				path="/peixun_page/contentManage/MessageManage/messageAdd.jsp" />
+			<forward name="edit"
+				path="/peixun_page/contentManage/MessageManage/messageEdit.jsp" />
+		</action>
+		<!-- 页面管理 -->
+		<action path="/contentManage/editionManage" scope="request"
+			type="com.hys.exam.struts.action.content.EditionAction" name="queryForm">
+			<forward name="success"
+				path="/peixun_page/contentManage/editionManage/editionList.jsp" />
+			<forward name="view"
+				path="/peixun_page/contentManage/editionManage/editionView.jsp" />
+			<forward name="edit"
+				path="/peixun_page/contentManage/editionManage/editionEdit.jsp" />
+			<forward name="viewCV"
+				path="/peixun_page/contentManage/editionManage/editionViewCV.jsp" />
+			<forward name="editCV"
+				path="/peixun_page/contentManage/editionManage/editionEditCV.jsp" />
+			<!-- 专委会 在  struts-config.xml  <action path="/expert/ExpertGroupManage" name="expertGroupForm" -->
+			<!-- 名师-对应的专家管理  -->
+		</action>
+
+		<action path="/system/peixunOrglist" type="com.hys.exam.struts.action.OrgManageAction"
+			scope="request" name="orgForm">
+			<forward name="list" path="/peixun_page/orgManage/org_list.jsp"></forward>
+		</action>
+
+		<action path="/propManage/getHospitalListAjax" scope="request"
+			type="com.hys.exam.struts.action.exam.ExamHospitalListAjaxAction">
+		</action>
+		<!--获取医院列表-->
+		<action path="/propManage/getHospitalAjax" scope="request"
+			type="com.hys.exam.struts.action.exam.ExamHospitalAjaxAction">
+		</action>
+		<!--  获取直播课件接口 -->
+		<action path="/cvLive/coursewareList" scope="request"
+			type="com.hys.exam.struts.action.liveservice.GetCoursewareForCvLive">
+		</action>
+		<!--  后台直播情况处理 -->
+		<action path="/cvLive/zhibo" scope="request"
+			type="com.hys.exam.struts.action.liveservice.CvLiveViewAction">
+		</action>
+		
+		<!-- 刷新权限 -->
+		<action path="/system/reloadrole" scope="request"
+			type="com.hys.auth.struts.action.ReloadRolesAction">
+		</action>
+		
+		
+		<!-- 登錄次數限制 -->
+		
+		<action path="/system/loginConfig"
+			type="com.hys.exam.struts.action.system.SystemLoginConfigAction"
+			scope="request">
+			<forward name="index" path="/system_config/system_login_config.jsp" />
+			
+		</action>
+
+	</action-mappings>
+
+</struts-config>

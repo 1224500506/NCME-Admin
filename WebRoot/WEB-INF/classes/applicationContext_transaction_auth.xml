@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<!-- hibernate 事务管理
+		<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+	-->
+
+	<!-- jdbc 事务管理 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<!-- 
+		<aop:aspectj-autoproxy />
+		以AspectJ方式 定义 AOP-->
+	<aop:config proxy-target-class="true">
+		<aop:advisor pointcut="execution(* com.hys.auth.dao.jdbc.*DAO.*(..))" advice-ref="txAdvice" />
+	</aop:config>
+
+	<aop:config proxy-target-class="true">
+		<aop:advisor pointcut="execution(* com.hys.auth.service.impl.*ManageImpl.*(..))" advice-ref="txAdvice" />
+	</aop:config>
+
+	<!-- 基本事务定义,使用transactionManager作事务管理,默认get*方法的事务为readonly,其余方法按默认设置.
+		默认的设置请参考Spring文档事务一章. -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="check*" read-only="true" />
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="valid*" read-only="true" />
+			<!-- 更新操作 -->
+			<tx:method name="add*" read-only="false" rollback-for="RuntimeException" />
+			<tx:method name="save*" read-only="false" rollback-for="RuntimeException" />
+			<tx:method name="store*" read-only="false" rollback-for="RuntimeException" />
+			<tx:method name="update*" read-only="false" rollback-for="RuntimeException" />
+			<tx:method name="delete*" read-only="false" rollback-for="RuntimeException" />
+		</tx:attributes>
+	</tx:advice>
+
+</beans>

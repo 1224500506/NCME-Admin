@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd" default-lazy-init="true">
+
+	<bean name="/Login"
+		class="com.hys.auth.struts.action.LoginAction">
+	</bean>
+	
+	<bean name="/Logout"
+		class="com.hys.auth.struts.action.LogoutAction">
+	</bean>
+
+	<bean name="/editPwd" class="com.hys.auth.struts.action.ProcessEditPasswordAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+
+	<bean name="/userManage/findUsers" class="com.hys.auth.struts.action.ProcessFindUsersAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/userManage/preFindUsers" class="com.hys.auth.struts.action.PrepareFindUsersAction">
+		<property name="facade" ref="facade" />
+	</bean>
+	<bean name="/userManage/preSaveUser" class="com.hys.auth.struts.action.PrepareSaveUserAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/userManage/getUsers" class="com.hys.auth.struts.action.UserManageGetUsersAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/userManage/addUsers" class="com.hys.auth.struts.action.UserManageAddUserAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/userManage/preUpdateUser" class="com.hys.auth.struts.action.UserManagePrepareUpdateUserAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/userManage/updateUser" class="com.hys.auth.struts.action.UserManageUpdateUserAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/userManage/deleteUser" class="com.hys.auth.struts.action.UserManageDeleteUserAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/userManage/updateRole" class="com.hys.auth.struts.action.ProcessUpdatePrivilegeAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+
+
+
+	<bean name="/security/saveRole" class="com.hys.auth.struts.action.ProcessSaveRolesAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/security/deleteRole" class="com.hys.auth.struts.action.ProcessDeleteRoleAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/security/preSaveRole" class="com.hys.auth.struts.action.PrepareSaveRoleAction">
+		<property name="facade" ref="facade" />
+	</bean>
+	
+
+	<bean name="/security/addResource" class="com.hys.auth.springsecurity.SecurityAddResourceAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/security/findResources" class="com.hys.auth.springsecurity.SecurityFindResourceAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/security/relate" class="com.hys.auth.springsecurity.SecurityRoleResourceAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/security/getRoles" class="com.hys.auth.springsecurity.SecurityGetRolesAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/security/getResource" class="com.hys.auth.springsecurity.SecurityGetResourceAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/security/updateResource" class="com.hys.auth.springsecurity.SecurityUpdateResourceAction">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean name="/security/deleteResource" class="com.hys.auth.springsecurity.SecurityDeleteResourceAction">
+		<property name="facade" ref="facade" />
+	</bean>
+</beans>
